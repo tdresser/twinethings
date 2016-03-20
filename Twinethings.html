@@ -1,0 +1,128 @@
+<tw-storydata name="Twinethings" startnode="1" creator="Twine" creator-version="2.0.11" ifid="E07304B1-E2B4-4C87-8479-06F52D66F206" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+input {
+	display:inline;
+	font-size:1em;
+	font-family: inherit;
+}
+
+form {
+	display: inline;
+}
+
+
+img {
+	max-width:100%;
+	max-height:300px;
+	margin:auto;
+	display:block;
+}
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+window.$ = {
+  e: function(name) {
+		var as = document.getElementsByTagName('tw-enchantment');
+    for (var i = 0; i < as.length; ++i){
+			if (name == as[i].innerText) {
+				as[i].click();
+			}
+    }
+	}
+};
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="home-base" tags="" position="741,404">{
+Where should I head to? You want me to go to
+&lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;
+&lt;input type=&quot;text&quot; id=&quot;destination_input&quot;&gt;
+&lt;/input&gt;&lt;/form&gt;? You&#39;re sure?
+}
+
+(click: &quot;sure&quot;)[
+  (set: $destination to document.getElementById(&quot;destination_input&quot;).value)
+  (go-to: (function() {
+    var destination = $destination.toLowerCase();
+	if (destination.indexOf(&quot;museum&quot;) &gt; -1)
+	  return &quot;museum-entrance&quot;;
+	else if (destination.indexOf(&quot;107&quot;) &gt; -1)
+	  return &quot;107&quot;;
+	else if (destination.length == 0)
+	  return &quot;empty-address&quot;;
+	else
+	  return &quot;unknown-location&quot;;
+  })())
+]</tw-passagedata>
+<tw-passagedata pid="2" name="museum-entrance" tags="" position="946,408">Classy looking museum.
+
+(font: &quot;Courier New&quot;)[&lt;img src=&quot;assets\museum.jpg&quot;&gt;&lt;/img&gt;]
+
+Apparently admission is $10. I&#39;m going to have to write that up in my expense report.
+
+Should I [[pay the $10|pay-admission]], [[try to sneak in|sneak-in]] or should I avoid the paperwork by [[going somewhere else|home-base]]?
+
+</tw-passagedata>
+<tw-passagedata pid="3" name="unknown-location" tags="" position="745,641">I&#39;m not sure where $destination is. Any [[other ideas|home-base]]?</tw-passagedata>
+<tw-passagedata pid="4" name="empty-address" tags="" position="560,409">Uh, try actually telling me where to go... [[Try again|home-base]]?</tw-passagedata>
+<tw-passagedata pid="5" name="pay-admission" tags="" position="948,246">Alright I&#39;m in. I&#39;m not looking forward to that paperwork though...
+
+What should I look for?
+
+{
+Go find the
+&lt;form onsubmit=&#39;$.e(&quot;find&quot;); return false&#39;&gt;
+&lt;input type=&quot;text&quot; id=&quot;museum_search_input&quot;&gt;
+&lt;/input&gt;&lt;/form&gt;.
+}
+
+(click: &quot;find&quot;)[
+  (set: $item to document.getElementById(&quot;museum_search_input&quot;).value)
+  (go-to: (function() {
+    var item = $item.toLowerCase();
+	if (item.indexOf(&quot;napkin&quot;) &gt; -1)
+	  return &quot;napkin-ring&quot;;
+	else
+	  return &quot;unknown-museum-item&quot;;
+  })())
+]</tw-passagedata>
+<tw-passagedata pid="6" name="sneak-in" tags="" position="1164,406">Alright, I&#39;ll try to sneak in.
+
+{
+(live: 1s)[
+(stop:)
+Rats, they caught me. They&#39;ve taken me back to the [[entrance|museum-entrance]].
+]
+}</tw-passagedata>
+<tw-passagedata pid="7" name="napkin-ring" tags="" position="1206,613">A napkin ring? Whatever you say...
+
+&lt;img src=&quot;assets\napkin_ring.jpg&quot;&gt;&lt;/img&gt;
+
+What next? Shall I [[zoom]] in on it for you?</tw-passagedata>
+<tw-passagedata pid="8" name="zoom" tags="" position="1209,790">A beaver. Great.
+
+&lt;img src=&quot;assets\napkin_ring_zoom.jpg&quot;&gt;&lt;/img&gt;
+
+What next? Shall I [[enhance]] it for you?</tw-passagedata>
+<tw-passagedata pid="9" name="enhance" tags="" position="1209,940">I increased contrast, rotated the colourspace, and performed some bitwise trickery. There was some hidden information on the napkin ring!
+
+&lt;img src=&quot;assets\napkin_ring_enhanced.jpg&quot;&gt;&lt;/img&gt;
+
+Where should we [[go|home-base]] now?</tw-passagedata>
+<tw-passagedata pid="10" name="107" tags="" position="748,224">Something cool about something.
+
+The end of what I wrote for now.</tw-passagedata>
+</tw-storydata>
