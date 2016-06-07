@@ -34,6 +34,8 @@ tw-story {
 	font-size:1.5em;
 	margin: 1em auto;
 	width:80%;
+	font-family: "Courier New", Courier, monospace;
+	font-weight:700;
 }
 
 .undo, .redo {
@@ -159,8 +161,56 @@ The end of what I wrote for now.</tw-passagedata>
 <tw-passagedata pid="11" name="Blood Intro - 1" tags="" position="233,304">Greetings friend, it is good to finally be in contact.  From what I can see from here, you are the most capable and reliable person present.  Most importantly, I sense your commitment to seeking the truth.  That above all else is why I have chosen you to aid me in thwarting the [[committee|Blood intro - 2]].  </tw-passagedata>
 <tw-passagedata pid="12" name="Blood intro - 2" tags="" position="233,452">For the first time in almost a century, the committee’s members are converging on a single location. This may be our one chance to finally obtain concrete evidence of the committee’s past deeds, and finally bring them to justice.  For that I need your [[help|Blood Intro 3]].  </tw-passagedata>
 <tw-passagedata pid="13" name="Blood Intro 3" tags="" position="233,604">Before we continue, you must decide whether or not you will accept this mission. You may learn things you would rather not know about our city’s history.  Your eyes may be opened to truths that cannot be unseen.  As always, the committee is watching, so we must remain vigilant.
+
+
 ==&gt;
-Blood</tw-passagedata>
+Blood
+&lt;==
+Are you ready to [[stop the committee|start]]? Or would you rather just [[eat, drink, and be oblivious|lazy]]?</tw-passagedata>
+<tw-passagedata pid="14" name="start" tags="" position="329,785">I’ll try not to take up too much of your time.
+
+This location used to be the committee’s primary storage facility. I believe that there may be evidence here that could lead to the arrest of multiple committee members - if we play our cards right, we should be able to [[force the committee to disband|find the box]] once and for all.
+</tw-passagedata>
+<tw-passagedata pid="15" name="lazy" tags="" position="172,781">I guess I was wrong about you.
+
+Let me know if you change your mind, and want to help [[stop the committee|start]].</tw-passagedata>
+<tw-passagedata pid="16" name="find the box" tags="" position="329,935">
+My contact has alerted me of a box located within the building, where the committee of 99 used to keep some of their secret documents.
+
+Start there and let me know what you find out.
+
+
+
+
+{
+Interesting, so the committee is looking for
+&lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;
+&lt;input type=&quot;text&quot; id=&quot;box_input&quot;&gt;
+&lt;/input&gt;&lt;/form&gt;? You&#39;re sure?
+}
+
+(click: &quot;sure&quot;)[
+  (set: $box to document.getElementById(&quot;box_input&quot;).value)
+  (go-to: (function() {
+    var box = $box.toLowerCase();
+	if (box.indexOf(&quot;bust&quot;) &gt; -1)
+	  return &quot;looking for bust&quot;;
+	return &quot;unknown-box&quot;;
+  })())
+]</tw-passagedata>
+<tw-passagedata pid="17" name="unknown-box" tags="" position="195,1113">I didn&#39;t quite follow that. What did you [[find in the box|find the box]]?</tw-passagedata>
+<tw-passagedata pid="18" name="looking for bust" tags="" position="425,1096">Interesting, so the committee is looking for the bust?
+
+You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee had the bust converted into a safe and used it to store their most sensitive documents, hidden in plain sight.  That bust must contain the evidence we need.  But [[where could it be|branches]]?  </tw-passagedata>
+<tw-passagedata pid="19" name="branches" tags="" position="425,1246">I have a couple of leads.  Let me know where you want to begin:
+
+One is [[the inconspicuous filing cabinet]].
+Alternatively, you might be able to get some information out of [[nearby committee members.]]
+You might also want to investigate [[businessman Sinclair’s dark past]]
+</tw-passagedata>
+<tw-passagedata pid="20" name="the inconspicuous filing cabinet" tags="" position="302,1424">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="21" name="nearby committee members." tags="" position="448,1428">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="22" name="businessman Sinclair’s dark past" tags="" position="583,1424">Double-click this passage to edit it.</tw-passagedata>
 </tw-storydata>
 
 
