@@ -1,4 +1,4 @@
-<tw-storydata name="Twinethings" startnode="1" creator="Twine" creator-version="2.0.11" ifid="E07304B1-E2B4-4C87-8479-06F52D66F206" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+<tw-storydata name="Twinethings" startnode="11" creator="Twine" creator-version="2.0.11" ifid="E07304B1-E2B4-4C87-8479-06F52D66F206" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 input {
 	display:inline;
 	font-size:1em;
@@ -17,6 +17,15 @@ img {
 	display:block;
 }
 
+tw-story {
+	font-size:1.5em;
+	margin: 1em auto;
+	width:80%;
+}
+
+.undo, .redo {
+	display:none;
+}
 
 
 
@@ -24,7 +33,15 @@ img {
 
 
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">function addMetaViewportTag() {
+	var metaTag=document.createElement('meta');
+  metaTag.name = "viewport"
+  metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+  document.getElementsByTagName('head')[0].appendChild(metaTag);
+}
+
+addMetaViewportTag();
+
 window.$ = {
   e: function(name) {
 		var as = document.getElementsByTagName('tw-enchantment');
@@ -35,6 +52,7 @@ window.$ = {
     }
 	}
 };
+
 
 
 
@@ -125,4 +143,9 @@ Where should we [[go|home-base]] now?</tw-passagedata>
 <tw-passagedata pid="10" name="107" tags="" position="748,224">Something cool about something.
 
 The end of what I wrote for now.</tw-passagedata>
+<tw-passagedata pid="11" name="Blood Intro - 1" tags="" position="233,304">Greetings friend, it is good to finally be in contact.  From what I can see from here, you are the most capable and reliable person present.  Most importantly, I sense your commitment to seeking the truth.  That above all else is why I have chosen you to aid me in thwarting the [[committee|Blood intro - 2]].  </tw-passagedata>
+<tw-passagedata pid="12" name="Blood intro - 2" tags="" position="233,452">For the first time in almost a century, the committee’s members are converging on a single location. This may be our one chance to finally obtain concrete evidence of the committee’s past deeds, and finally bring them to justice.  For that I need your [[help|Blood Intro 3]].  </tw-passagedata>
+<tw-passagedata pid="13" name="Blood Intro 3" tags="" position="233,604">Before we continue, you must decide whether or not you will accept this mission. You may learn things you would rather not know about our city’s history.  Your eyes may be opened to truths that cannot be unseen.  As always, the committee is watching, so we must remain vigilant.
+==&gt;
+Blood</tw-passagedata>
 </tw-storydata>
