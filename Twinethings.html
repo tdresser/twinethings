@@ -1,4 +1,4 @@
-<tw-storydata name="Twinethings" startnode="14" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+<tw-storydata name="Twinethings" startnode="1" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 input {
 	display:inline;
 	font-size:1em;
@@ -197,42 +197,40 @@ You’ve [[found | found-committee-member]] someone?
   TODO - remove this. Couldn&#39;t save game.
 ]
 }</tw-passagedata>
-<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="235,156">&lt;!--(goto: &quot;Blood Intro - 1&quot;)--&gt;
-(goto: &quot;show-contact-documents&quot;)
+<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="235,156">(goto: &quot;Blood Intro - 1&quot;)
+&lt;!--(goto: &quot;show-contact-documents&quot;)--&gt;
 (save-game: &quot;Z&quot;)</tw-passagedata>
 <tw-passagedata pid="15" name="done-cabinet" tags="" position="104,1449">(set: $doneFilingCabinet to true)
 
 [[Back to the branches |branches]]</tw-passagedata>
-<tw-passagedata pid="16" name="done-committee-member" tags="" position="455,1598">(set: $doneCommitteeMember to true)
+<tw-passagedata pid="16" name="done-businessman-sinclair" tags="" position="798,1240">(set: $doneBusinessmanSinclair to true)
 
 
 [[Back to the branches |branches]]</tw-passagedata>
-<tw-passagedata pid="17" name="done-businessman-sinclair" tags="" position="798,1240">(set: $doneBusinessmanSinclair to true)
-
-
-[[Back to the branches |branches]]</tw-passagedata>
-<tw-passagedata pid="18" name="done-all-branches" tags="" position="937,939">User is done all the branches!</tw-passagedata>
-<tw-passagedata pid="19" name="empty box input" tags="" position="161,935">{
+<tw-passagedata pid="17" name="done-all-branches" tags="" position="937,939">User is done all the branches!</tw-passagedata>
+<tw-passagedata pid="18" name="empty box input" tags="" position="161,935">{
 (either: &quot;Excuse me?&quot;,
          &quot;You&#39;ve got to tell me what found.&quot;,
 		 &quot;Try typing your answer in the little textbox thing.&quot;)
 
 What did you [[find in the box|find the box]]?
 }</tw-passagedata>
-<tw-passagedata pid="20" name=" found-committee-member" tags="" position="273,1679">I wonder what they’re looking at. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing. I’ve got a contact at your location who may be able to help you interpret what you find.
+<tw-passagedata pid="19" name=" found-committee-member" tags="" position="273,1679">I wonder what they’re looking at. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing. I’ve got a contact at your location who may be able to help you interpret what you find.
 
 You’ll be able to identify my contact by their anti-committee button. Try [[showing them|show-contact-documents]] the documents.</tw-passagedata>
-<tw-passagedata pid="21" name="show-contact-documents" tags="" position="269,1834">Wonderful, did my contact wearing the anti-committee button provide you with any useful information? Do you know anything more about where the bust is hidden?
-
-&lt;!-- Careful changing whitespace here, it&#39;s a bit fiddly.--&gt;
-The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;&lt;input type=&quot;text&quot; id=&quot;bust_distance_museum&quot;&gt;&lt;/input&gt; of the &lt;input type=&quot;text&quot; id=&quot;bust_distance_museum_location&quot;&gt;&lt;/input&gt;&lt;/form&gt;? Are you sure?
+<tw-passagedata pid="20" name="show-contact-documents" tags="" position="269,1834">Wonderful, did my contact wearing the anti-committee button provide you with any useful information? Do you know anything more about where the bust is hidden?
+{&lt;!-- 
+Careful changing whitespace here, it&#39;s a bit fiddly.
+When there are multiple input fields, you need an explicit enter key handler.
+--&gt;}
+The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;&lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;sure&quot;)}&#39; type=&quot;text&quot; id=&quot;bust_distance_museum&quot;&gt;&lt;/input&gt; of the &lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;sure&quot;)}&#39; type=&quot;text&quot; id=&quot;bust_distance_museum_location&quot;&gt;&lt;/input&gt;&lt;/form&gt;? Are you sure?
 
 (click: &quot;sure&quot;)[
   (set: $distance to document.getElementById(&quot;bust_distance_museum&quot;).value)
   (set: $location to document.getElementById(&quot;bust_distance_museum_location&quot;).value)
   (goto: &quot;check-museum-location&quot;)
 ]</tw-passagedata>
-<tw-passagedata pid="22" name="check-museum-location" tags="" position="265,1989">{
+<tw-passagedata pid="21" name="check-museum-location" tags="" position="265,1989">{
 &lt;!-- Comments in javascript blocks like this explode things. --&gt;
 &lt;!-- TODO - substitute correct number for distance. --&gt;
 
@@ -249,13 +247,14 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
 	if (location.indexOf(&quot;museum&quot;) is -1)
 	  return (&quot;It&#39;s &quot; + distance + &quot; from &quot; + location + &quot;? That doesn&#39;t make a whole lot of sense. Are you [[sure|show-contact-documents]]?&quot;);
 	if (number != &quot;2&quot;)
-	  return (&quot;It&#39;s &quot; + distance + &quot; away from there? That doesn&#39;t seem quite right. Are you [[sure|show-contact-documents]]?&quot;);
+	  return (&quot;It&#39;s &quot; + distance + &quot; away from the Waterloo Regional Museum? That doesn&#39;t seem quite right. Are you [[sure|show-contact-documents]]?&quot;);
 	return &quot;&quot;;
 })())
 
 (if: $error&#39;s length &gt; 0)[
   (print: $error)
 ](else:)[
+  (set: $doneCommitteeMember to true)
   (goto: &quot;branches&quot;)
 ]
 }</tw-passagedata>
