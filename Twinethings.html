@@ -1,4 +1,4 @@
-<tw-storydata name="Twinethings" startnode="1" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+<tw-storydata name="Twinethings" startnode="14" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 input {
 	display:inline;
 	font-size:1em;
@@ -36,6 +36,7 @@ tw-story {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">function addMetaViewportTag() {
 	var metaTag=document.createElement('meta');
   metaTag.name = "viewport"
@@ -55,6 +56,7 @@ window.$ = {
     }
 	}
 };
+
 
 
 
@@ -132,26 +134,36 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
 
 &lt;!-- TODO - fix language here to make the randomization make sense --&gt;
 
-&lt;!-- TODO - use
-$doneFilingCabinet
-$doneCommitteeMember
-$doneBusinessmanSinclair
---&gt;
+(set: $options to (a:))
 
-(print: (shuffled: ...(a:
-  &quot;One is [[the inconspicuous filing cabinet]].&quot;,
-  &quot;Alternatively, you might be able to get some information out of [[nearby committee member.]]&quot;,
-  &quot;You might also want to investigate [[businessman Sinclair’s dark past]].&quot;
-)).join(&quot; &quot;))
+&lt;!-- $dummy used to execute things using (set:), because twine requires a macro in order to do anything --&gt;
+
+(if: !$doneFilingCabinet)[
+  (set: $dummy to $options.push(&quot;take a look at the [[inconspicuous filing cabinet]].&quot;))
+]
+
+(if: !$doneCommitteeMember)[
+  (set: $dummy to $options.push(&quot;get some information out of a [[nearby committee member.]]&quot;))
+]
+
+(if: !$doneBusinessmanSinclair)[
+  (set: $dummy to $options.push(&quot;investigate [[businessman Sinclair’s dark past]].&quot;))
+]
+
+(if: $options&#39;s length &gt; 1)[
+  (set: $options to (shuffled: ...$options))
+]
+
+(print: $options.join(&quot; &quot;))
 }</tw-passagedata>
-<tw-passagedata pid="10" name="the inconspicuous filing cabinet" tags="" position="127,1260">[[done|done-cabinet]]
+<tw-passagedata pid="10" name="inconspicuous filing cabinet" tags="" position="118,1256">[[done|done-cabinet]]
 
 
 
 </tw-passagedata>
 <tw-passagedata pid="11" name="nearby committee member." tags="" position="268,1519">[[done|done-committee-member]]
 </tw-passagedata>
-<tw-passagedata pid="12" name="businessman Sinclair’s dark past" tags="" position="625,1450">[[done|done-businessman-sinclair]]</tw-passagedata>
+<tw-passagedata pid="12" name="businessman Sinclair’s dark past" tags="" position="670,1591">[[done|done-businessman-sinclair]]</tw-passagedata>
 <tw-passagedata pid="13" name="Footer" tags="footer" position="87,306">{
 (if: (history:)&#39;s length is 0 and 
      (saved-games:) contains &quot;Z&quot;)[
@@ -163,17 +175,17 @@ $doneBusinessmanSinclair
   TODO - remove this. Couldn&#39;t save game.
 ]
 }</tw-passagedata>
-<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="235,156">(goto: &quot;Blood Intro - 1&quot;)
-&lt;!--(goto: &quot;branches&quot;)--&gt;
+<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="235,156">&lt;!--(goto: &quot;Blood Intro - 1&quot;)--&gt;
+(goto: &quot;branches&quot;)
 (save-game: &quot;Z&quot;)</tw-passagedata>
 <tw-passagedata pid="15" name="done-cabinet" tags="" position="133,1437">(set: $doneFilingCabinet to true)
 
 [[Back to the branches |branches]]</tw-passagedata>
-<tw-passagedata pid="16" name="done-committee-member" tags="" position="479,1601">(set: $doneCommitteeMember to true)
+<tw-passagedata pid="16" name="done-committee-member" tags="" position="455,1598">(set: $doneCommitteeMember to true)
 
 
 [[Back to the branches |branches]]</tw-passagedata>
-<tw-passagedata pid="17" name="done-businessman-sinclair" tags="" position="798,1240">(set: $doneBusinessmanSinclair to false)
+<tw-passagedata pid="17" name="done-businessman-sinclair" tags="" position="798,1240">(set: $doneBusinessmanSinclair to true)
 
 
 [[Back to the branches |branches]]</tw-passagedata>
