@@ -127,41 +127,58 @@ What did you [[find in the box|find the box]]?
 <tw-passagedata pid="8" name="looking for bust" tags="" position="425,1096">Interesting, so the committee is looking for the bust?
 
 You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee had the bust converted into a safe and used it to store their most sensitive documents, hidden in plain sight.  That bust must contain the evidence we need.  But [[where could it be|branches]]?  </tw-passagedata>
-<tw-passagedata pid="9" name="branches" tags="" position="425,1246">I have a couple of leads.  Let me know where you want to begin: 
+<tw-passagedata pid="9" name="branches" tags="" position="425,1245">{
+  &lt;!-- Setting these to false if they were uninitialized just simplifies debugging - you can start here without it failing. --&gt;
 
-{
-&lt;!-- Randomize the order of the streams, to encourage people to do them in a varied order --&gt;
+(if: $doneFilingCabinet is 0)[
+  (set: $doneFilingCabinet to false)
+]
+(if: $doneCommitteeMember is 0)[
+  (set: $doneCommitteeMember to false)
+]
+(if: $doneBusinessmanSinclair is 0)[
+  (set: $doneBusinessmanSinclair to false)
+]
+(if: $doneFilingCabinet &amp;&amp; $doneCommitteeMember &amp;&amp; $doneBusinessmanSinclair)[
+  (goto: &quot;done-all-branches&quot;)
+]
 
-&lt;!-- TODO - fix language here to make the randomization make sense --&gt;
+&lt;!-- Randomize the order of the streams, to encourage people to do them in a varied order. --&gt;
+
+&lt;!-- $dummy used to execute things using (set:), because twine requires a macro in order to do anything. --&gt;
 
 (set: $options to (a:))
 
-&lt;!-- $dummy used to execute things using (set:), because twine requires a macro in order to do anything --&gt;
-
 (if: !$doneFilingCabinet)[
-  (set: $dummy to $options.push(&quot;take a look at the [[inconspicuous filing cabinet]].&quot;))
+  (set: $dummy to $options.push(&quot;take a look at the [[inconspicuous filing cabinet]]&quot;))
 ]
 
 (if: !$doneCommitteeMember)[
-  (set: $dummy to $options.push(&quot;get some information out of a [[nearby committee member.]]&quot;))
+  (set: $dummy to $options.push(&quot;get some information out of a [[nearby committee member]]&quot;))
 ]
 
 (if: !$doneBusinessmanSinclair)[
-  (set: $dummy to $options.push(&quot;investigate [[businessman Sinclair’s dark past]].&quot;))
+  (set: $dummy to $options.push(&quot;investigate [[businessman Sinclair’s dark past]]&quot;))
 ]
 
 (if: $options&#39;s length &gt; 1)[
   (set: $options to (shuffled: ...$options))
 ]
 
-(print: $options.join(&quot; &quot;))
+(if: $options&#39;s length is 1)[
+  (print: &quot;Great work! All that&#39;s left is to &quot; + $options[0] + &quot;.&quot;)
+](elseif: $options&#39;s length is 2)[
+  (print: &quot;Thanks! Next up, you could &quot; + $options[0] + &quot; or perhaps &quot; + $options[1] + &quot;.&quot;)
+](else:)[
+(print: &quot;I have a couple leads. Let me know where you want to begin:\n\n One is to &quot; + $options[0] + &quot;.\n\n Alternatively, you could  &quot; + $options[1] + &quot;.\n\n You might also want to &quot; + $options[2] + &quot;.&quot;)
+]
 }</tw-passagedata>
 <tw-passagedata pid="10" name="inconspicuous filing cabinet" tags="" position="118,1256">[[done|done-cabinet]]
 
 
 
 </tw-passagedata>
-<tw-passagedata pid="11" name="nearby committee member." tags="" position="268,1519">[[done|done-committee-member]]
+<tw-passagedata pid="11" name="nearby committee member" tags="" position="268,1519">[[done|done-committee-member]]
 </tw-passagedata>
 <tw-passagedata pid="12" name="businessman Sinclair’s dark past" tags="" position="670,1591">[[done|done-businessman-sinclair]]</tw-passagedata>
 <tw-passagedata pid="13" name="Footer" tags="footer" position="87,306">{
@@ -178,7 +195,7 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
 <tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="235,156">&lt;!--(goto: &quot;Blood Intro - 1&quot;)--&gt;
 (goto: &quot;branches&quot;)
 (save-game: &quot;Z&quot;)</tw-passagedata>
-<tw-passagedata pid="15" name="done-cabinet" tags="" position="133,1437">(set: $doneFilingCabinet to true)
+<tw-passagedata pid="15" name="done-cabinet" tags="" position="104,1449">(set: $doneFilingCabinet to true)
 
 [[Back to the branches |branches]]</tw-passagedata>
 <tw-passagedata pid="16" name="done-committee-member" tags="" position="455,1598">(set: $doneCommitteeMember to true)
@@ -189,4 +206,5 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
 
 
 [[Back to the branches |branches]]</tw-passagedata>
+<tw-passagedata pid="18" name="done-all-branches" tags="" position="886,1019">User is done all the branches!</tw-passagedata>
 </tw-storydata>
