@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="Twinethings" startnode="1" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+<tw-storydata name="Twinethings" startnode="14" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 input {
 	display:inline;
 	font-size:1em;
@@ -193,7 +193,10 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
 
 
 </tw-passagedata>
-<tw-passagedata pid="11" name="nearby committee member" tags="" position="268,1519">[[done|done-committee-member]]
+<tw-passagedata pid="11" name="nearby committee member" tags="" position="268,1519">
+Have you seen any committee members around? Anyone sitting around sifting through documents, instead of enjoying the evening? Or dressed strangely formally? The committee always did encourage suits and ties.
+
+You’ve [[found | found-committee-member]] someone?
 </tw-passagedata>
 <tw-passagedata pid="12" name="businessman Sinclair’s dark past" tags="" position="670,1591">[[done|done-businessman-sinclair]]</tw-passagedata>
 <tw-passagedata pid="13" name="Footer" tags="footer" position="87,306">{
@@ -208,7 +211,7 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
 ]
 }</tw-passagedata>
 <tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="235,156">&lt;!--(goto: &quot;Blood Intro - 1&quot;)--&gt;
-(goto: &quot;find the box&quot;)
+(goto: &quot;show-contact-documents&quot;)
 (save-game: &quot;Z&quot;)</tw-passagedata>
 <tw-passagedata pid="15" name="done-cabinet" tags="" position="104,1449">(set: $doneFilingCabinet to true)
 
@@ -229,6 +232,44 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
 
 What did you [[find in the box|find the box]]?
 }</tw-passagedata>
+<tw-passagedata pid="20" name=" found-committee-member" tags="" position="273,1679">I wonder what they’re looking at. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing. I’ve got a contact at your location who may be able to help you interpret what you find.
+
+You’ll be able to identify my contact by their anti-committee button. Try [[showing them|show-contact-documents]] the documents.</tw-passagedata>
+<tw-passagedata pid="21" name="show-contact-documents" tags="" position="273,1829">Wonderful, did my contact wearing the anti-committee button provide you with any useful information? Do you know anything more about where the bust is hidden?
+
+&lt;!-- Careful changing whitespace here, it&#39;s a bit fiddly.--&gt;
+The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;&lt;input type=&quot;text&quot; id=&quot;bust_distance_museum&quot;&gt;&lt;/input&gt; of the &lt;input type=&quot;text&quot; id=&quot;bust_distance_museum_location&quot;&gt;&lt;/input&gt;&lt;/form&gt;? Are you sure?
+
+(click: &quot;sure&quot;)[
+  (set: $distance to document.getElementById(&quot;bust_distance_museum&quot;).value)
+  (set: $location to document.getElementById(&quot;bust_distance_museum_location&quot;).value)
+  &lt;!-- Comments in javascript blocks like this explode things. --&gt;
+  &lt;!-- TODO - substitute correct number for distance. --&gt;
+  (go-to: (function() {
+    var distance = $distance.toLowerCase();
+	var non_number_regex = new RegExp(&quot;[^0-9]&quot;, &quot;g&quot;);
+    var number = distance.replace(non_number_regex, &quot;&quot;);
+	var location = $location.toLowerCase();
+	if (location.indexOf(&quot;museum&quot;) == -1)
+	  return &quot;museum-location-error&quot;;
+    if (number.length == 0) 
+	  return &quot;museum-distance-error&quot;;
+	if (number != &quot;2&quot;)
+	  return &quot;museum-incorrect-distance&quot;;
+	return &quot;branches&quot;;	
+  })())
+]</tw-passagedata>
+<tw-passagedata pid="22" name="museum-distance-error" tags="" position="119,1832">{
+(if: $distance&#39;s length &gt; 0)[
+The distance is $distance? I&#39;m not quite sure [[what you mean|show-contact-documents]].
+](else:)[
+And how [[far away from there is it?|show-contact-documents]].
+]
+}</tw-passagedata>
+<tw-passagedata pid="23" name="museum-incorrect-distance" tags="" position="121,1967">That distance doesn&#39;t make much sense, looking at my map. Are you sure about [[that|show-contact-documents]]?</tw-passagedata>
+<tw-passagedata pid="24" name="museum-location-error" tags="" position="270,1963">&lt;!--You mean the bust is $distance away from $location? That doesn&#39;t make a whole lot of sense. Are you [[sure|show-contact-documents]]?--&gt;
+
+FOO</tw-passagedata>
 </tw-storydata>
 
 
