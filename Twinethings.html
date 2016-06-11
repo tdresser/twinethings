@@ -1,4 +1,4 @@
-<tw-storydata name="Twinethings" startnode="11" creator="Twine" creator-version="2.0.11" ifid="E07304B1-E2B4-4C87-8479-06F52D66F206" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+<tw-storydata name="Twinethings" startnode="24" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 input {
 	display:inline;
 	font-size:1em;
@@ -38,6 +38,9 @@ tw-story {
 
 
 
+
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">function addMetaViewportTag() {
 	var metaTag=document.createElement('meta');
   metaTag.name = "viewport"
@@ -57,6 +60,9 @@ window.$ = {
     }
 	}
 };
+
+
+
 
 
 
@@ -208,11 +214,18 @@ You might also want to investigate [[businessman Sinclair’s dark past]]
 Double-click this passage to edit it.</tw-passagedata>
 <tw-passagedata pid="21" name="nearby committee members." tags="" position="447,1428">Double-click this passage to edit it.</tw-passagedata>
 <tw-passagedata pid="22" name="businessman Sinclair’s dark past" tags="" position="583,1424">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="23" name="Header" tags="header" position="87,306">(print: (saved-games:).size)
-Save successfull?
-(print: (save-game: &quot;B&quot;, &quot;B&quot;))
-(print: (saved-games:)&#39;s &quot;B&quot;)
-(print: (saved-games:))
-(print: (saved-games:) contains &quot;B&quot;)
-</tw-passagedata>
+<tw-passagedata pid="23" name="Footer" tags="footer" position="87,306">{
+
+(if: (history:)&#39;s length is 0 and 
+     (saved-games:) contains &quot;Z&quot;)[
+	 (load-game: &quot;Z&quot;)
+]
+
+(if:(save-game:&quot;Z&quot;))[
+  ](else: )[
+    TODO - remove this. Couldn&#39;t save game.
+  ]
+}</tw-passagedata>
+<tw-passagedata pid="24" name="Debugging only - start from beginning" tags="" position="235,156">(goto: &quot;Blood Intro - 1&quot;)
+(save-game: &quot;Z&quot;)</tw-passagedata>
 </tw-storydata>
