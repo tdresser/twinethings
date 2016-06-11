@@ -1,4 +1,4 @@
-<tw-storydata name="Twinethings" startnode="14" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+<tw-storydata name="Twinethings" startnode="1" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 input {
 	display:inline;
 	font-size:1em;
@@ -111,12 +111,14 @@ Interesting, so the committee is looking for
   (set: $box to document.getElementById(&quot;box_input&quot;).value)
   (go-to: (function() {
     var box = $box.toLowerCase();
-	if (box.indexOf(&quot;bust&quot;) &gt; -1)
+	if (box.length == 0) {
+	  return &quot;empty box input&quot;;
+	} else if (box.indexOf(&quot;bust&quot;) &gt; -1)
 	  return &quot;looking for bust&quot;;
 	return &quot;unknown-box&quot;;
   })())
 ]</tw-passagedata>
-<tw-passagedata pid="7" name="unknown-box" tags="" position="195,1113">{
+<tw-passagedata pid="7" name="unknown-box" tags="" position="283,1097">{
 (either: &quot;I didn&#39;t quite follow that.&quot;,
          &quot;Sorry, I&#39;m not sure what that is.&quot;,
 		 &quot;You&#39;re not making sense.&quot;,
@@ -193,7 +195,7 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
 ]
 }</tw-passagedata>
 <tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="235,156">&lt;!--(goto: &quot;Blood Intro - 1&quot;)--&gt;
-(goto: &quot;branches&quot;)
+(goto: &quot;find the box&quot;)
 (save-game: &quot;Z&quot;)</tw-passagedata>
 <tw-passagedata pid="15" name="done-cabinet" tags="" position="104,1449">(set: $doneFilingCabinet to true)
 
@@ -206,5 +208,12 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
 
 
 [[Back to the branches |branches]]</tw-passagedata>
-<tw-passagedata pid="18" name="done-all-branches" tags="" position="886,1019">User is done all the branches!</tw-passagedata>
+<tw-passagedata pid="18" name="done-all-branches" tags="" position="937,939">User is done all the branches!</tw-passagedata>
+<tw-passagedata pid="19" name="empty box input" tags="" position="161,935">{
+(either: &quot;Excuse me?&quot;,
+         &quot;You&#39;ve got to tell me what found.&quot;,
+		 &quot;Try typing your answer in the little textbox thing.&quot;)
+
+What did you [[find in the box|find the box]]?
+}</tw-passagedata>
 </tw-storydata>
