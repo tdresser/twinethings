@@ -29,8 +29,15 @@ tw-story {
 
 .header-text{
 	text-align:center;
-	width:100%;
 	margin-top:0;
+	white-space: nowrap;
+  overflow: hidden;
+	width:0%;
+	animation: type 2s steps(60, end) 799ms;
+	animation-fill-mode: forwards;
+	/* alternatively.. */
+	/* animation: blink 1s 3;
+	   width:100%; */
 }
 
 .undo, .redo {
@@ -38,8 +45,17 @@ tw-story {
 }
 
 .blood-thumb{
-    border-radius: 75%;
+	border-radius: 75%;
 }
+
+@keyframes blink{
+  to{opacity: .0;}
+}
+
+@keyframes type{
+  to { width: 100%; }
+}
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">function addMetaViewportTag() {
 	var metaTag=document.createElement('meta');
   metaTag.name = "viewport"
@@ -59,6 +75,7 @@ window.$ = {
     }
 	}
 };
+
 
 
 
