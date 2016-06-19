@@ -1,4 +1,4 @@
-<tw-storydata name="(1) Stop The Committee!" startnode="1" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+<tw-storydata name="(1) Stop The Committee!" startnode="14" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 input {
 	display:inline;
 	font-size:1em;
@@ -70,6 +70,7 @@ tw-story {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">function addMetaViewportTag() {
 	var metaTag=document.createElement('meta');
   metaTag.name = "viewport"
@@ -89,6 +90,7 @@ window.$ = {
     }
 	}
 };
+
 
 
 
@@ -227,7 +229,7 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
 
 
 </tw-passagedata>
-<tw-passagedata pid="11" name="nearby committee member" tags="" position="268,1519">
+<tw-passagedata pid="11" name="nearby committee member" tags="" position="297,1595">
 Have you seen any committee members around? Anyone sitting around sifting through documents, instead of enjoying the evening? Or dressed strangely formally? The committee always did encourage suits and ties.
 
 You’ve [[found | found-committee-member]] someone?
@@ -246,8 +248,8 @@ You’ve [[found | found-committee-member]] someone?
     ]
 ]
 }</tw-passagedata>
-<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="235,156">(goto: &quot;Blood Intro - 1&quot;)
-&lt;!--(goto: &quot;show-contact-documents&quot;)--&gt;
+<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="234,156">&lt;!--(goto: &quot;Blood Intro - 1&quot;)--&gt;
+(goto: &quot;show-contact-documents&quot;)
 (save-game: &quot;Z&quot;)</tw-passagedata>
 <tw-passagedata pid="15" name="done-cabinet" tags="" position="104,1449">(set: $doneFilingCabinet to true)
 
@@ -264,13 +266,9 @@ You’ve [[found | found-committee-member]] someone?
 
 What did you [[find in the box|find the box]]?
 }</tw-passagedata>
-<tw-passagedata pid="19" name=" found-committee-member" tags="" position="273,1679">I wonder what they’re looking at. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing. I’ve got a contact at your location who may be able to help you interpret what you find.
-
-&lt;!-- They should should also be wearing this hat:[hat-image]
- (also mention--&gt;
-
-You’ll be able to identify my contact by their anti-committee button. Try [[showing them|show-contact-documents]] the documents.</tw-passagedata>
-<tw-passagedata pid="20" name="show-contact-documents" tags="" position="269,1834">Wonderful, did my contact wearing the anti-committee button provide you with any useful information? Do you know anything more about where the bust is hidden?
+<tw-passagedata pid="19" name=" found-committee-member" tags="" position="83,1690">I wonder what information they have. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing.  We do have some [[intel]] on that particular committee member..
+</tw-passagedata>
+<tw-passagedata pid="20" name="show-contact-documents" tags="" position="295,1921">Wonderful, did my contact wearing the anti-committee button provide you with any useful information? Do you know anything more about where the bust is hidden?
 {&lt;!-- 
 Careful changing whitespace here, it&#39;s a bit fiddly.
 When there are multiple input fields, you need an explicit enter key handler.
@@ -282,7 +280,7 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
   (set: $location to document.getElementById(&quot;bust_distance_museum_location&quot;).value)
   (goto: &quot;check-museum-location&quot;)
 ]</tw-passagedata>
-<tw-passagedata pid="21" name="check-museum-location" tags="" position="265,1989">{
+<tw-passagedata pid="21" name="check-museum-location" tags="" position="491,1776">{
 &lt;!-- Comments in javascript blocks like this explode things. --&gt;
 &lt;!-- TODO - substitute correct number for distance. --&gt;
 
@@ -293,12 +291,12 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
     var number = distance.replace(non_number_regex, &quot;&quot;);
 	
     if (location.length === 0)
-	  return &quot;What [[location|show-contact-documents]] are you referring to?&quot;;
+	  return &quot;What [[location|show-contact-documents]] are you referring to?  Did you need reminder on [[what your task was?|nearby committee member]]  Or did you want to [[try something else?|branches]]&quot;;
 	if (number.length === 0) 
 	  return &quot;How [[far away|show-contact-documents]] is it?&quot;;
 	if (location.indexOf(&quot;museum&quot;) is -1)
-	  return (&quot;It&#39;s &quot; + distance + &quot; from &quot; + location + &quot;? That doesn&#39;t make a whole lot of sense. Are you [[sure|show-contact-documents]]?&quot;);
-	if (number != &quot;2&quot;)
+	  return (&quot;It&#39;s &quot; + distance + &quot; from &quot; + location + &quot;? That doesn&#39;t make a whole lot of sense. Are you [[sure|show-contact-documents]]?  Or did you forget [[what your task was?|nearby committee member]]  Or did you want to [[try something else?|branches]]&quot;);
+	if (number != &quot;5&quot;)
 	  return (&quot;It&#39;s &quot; + distance + &quot; away from the Waterloo Regional Museum? That doesn&#39;t seem quite right. Are you [[sure|show-contact-documents]]?&quot;);
 	return &quot;&quot;;
 })())
@@ -313,4 +311,11 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
 <tw-passagedata pid="22" name="Header" tags="header" position="394,303">&lt;img class=&quot;blood-thumb&quot; src=&quot;assets/incognito.jpg&quot; width=&quot;100&quot; height=&quot;100&quot; alt=&quot;j.blood&quot;&gt;
 &lt;p class=&quot;header-text&quot;&gt;&lt;span class=&quot;animate&quot;&gt;[``**INCOMING MESSAGE**``]&lt;/span&gt;&lt;/p&gt;
 </tw-passagedata>
+<tw-passagedata pid="23" name="intel" tags="" position="81,1890">Well, it looks here like your committee member is a *really* big fan of camp songs—the file says he &quot;is frequently distracted from his duties by groups of people including him in fun campfire songs, summer camp games, and repeat-after-me songs&quot;.  Hmm.  Seems oddly specific.  Sorry, not much else to go on..
+
+...
+
+Once you have the documents, I’ve got a contact at your location who may be able to help you interpret what you find.  You’ll be able to identify my contact by their distinctive hat, and this anti-committee button:
+&lt;img src=&quot;assets/pin.png&quot; width=&quot;200&quot; height=&quot;200&quot; alt=&quot;Committe of 99&quot;&gt;
+Try [[showing them|show-contact-documents]] the documents.</tw-passagedata>
 </tw-storydata>
