@@ -73,10 +73,12 @@ tw-story {
 @keyframes type{
   to { width: 100%; }
 	/* Committee */
-	99% {overflow-x: hidden;}
+	99% {overflow-y: visible;
+		   overflow-x: hidden;}
 	100% {overflow-y: visible;
-				overflow-x: visible;}
+        overflow-x: visible;}
 }
+
 
 
 
@@ -124,24 +126,27 @@ window.$ = {
 
 
 
+
 </script><tw-passagedata pid="1" name="Blood Intro - 1" tags="" position="229,304">{
 (set: $doneFilingCabinet to false)
 (set: $doneCommitteeMember to false)
-(set: $doneBusinessmanSinclair to false)
-Greetings friend, it is good to finally be in contact.  From what I can see from here, you are the most capable and reliable person present.  Most importantly, I sense your commitment to seeking the truth.  That above all else is why I have chosen you to aid me in thwarting the [[committee|Blood intro - 2]].  
+(set: $doneDarkPast to false)
+Greetings friend, it is good to finally be in contact.  My contacts tell me you are a capable and reliable choice for the task at hand.  Most importantly, I sense your commitment to seeking the truth.  So I&#39;ve chosen &lt;b&gt;you&lt;b&gt; to aid me in the important task of thwarting the [[committee|Blood intro - 2]].  
 }</tw-passagedata>
-<tw-passagedata pid="2" name="Blood intro - 2" tags="" position="233,452">For the first time in almost a century, the committee’s members are converging on a single location. This may be our one chance to finally obtain concrete evidence of the committee’s past deeds, and finally bring them to justice.  For that I need your [[help|Blood Intro 3]].  </tw-passagedata>
+<tw-passagedata pid="2" name="Blood intro - 2" tags="" position="233,452">For the first time in almost a century, the committee’s members are converging on a single location—where you now are. This may be our one chance to finally obtain concrete evidence of the committee’s past deeds, and finally bring them to justice.  For that I need your [[help|Blood Intro 3]].  </tw-passagedata>
 <tw-passagedata pid="3" name="Blood Intro 3" tags="" position="233,604">Before we continue, you must decide whether or not you will accept this mission. You may learn things you would rather not know about our city’s history.  Your eyes may be opened to truths that cannot be unseen.  As always, the committee is watching, so we must remain vigilant.
 
+Seek truth always,
 
 ==&gt;
-Blood
+--Blood
 &lt;==
 
-Are you ready to [[stop the committee|start]]? Or would you rather just [[eat, drink, and be oblivious|lazy]]?</tw-passagedata>
+
+Now.  Are you ready to [[stop the committee|start]]? Or would you rather just [[eat, drink, and be oblivious|lazy]]?</tw-passagedata>
 <tw-passagedata pid="4" name="start" tags="" position="329,785">I’ll try not to take up too much of your time.
 
-This location used to be the committee’s primary storage facility. I believe that there may be evidence here that could lead to the arrest of multiple committee members - if we play our cards right, we should be able to [[force the committee to disband|find the box]] once and for all.
+This location was formerly the committee’s primary storage facility. I believe that there may be evidence here that could lead to the arrest of multiple committee members—if we play our cards right, we should be able to [[force the committee to disband|find the box]] once and for all.
 </tw-passagedata>
 <tw-passagedata pid="5" name="lazy" tags="" position="171,781">I guess I was wrong about you.
 
@@ -149,7 +154,11 @@ Let me know if you change your mind, and want to help [[stop the committee|start
 <tw-passagedata pid="6" name="find the box" tags="" position="329,935">
 My contact has alerted me of a box located within the building, where the committee of 99 used to keep some of their secret documents.
 
+We know that the box should have the committee&#39;s logo on it:
+&lt;img src=&quot;assets/99logo.png&quot; width=&quot;200&quot; height=&quot;200&quot; alt=&quot;Committe of 99&quot;&gt;
 Start there and let me know what you find out.
+
+...
 
 {
 Interesting, so the committee is looking for
@@ -179,8 +188,8 @@ What did you [[find in the box|find the box]]?
 }</tw-passagedata>
 <tw-passagedata pid="8" name="looking for bust" tags="" position="425,1096">Interesting, so the committee is looking for the bust?
 
-You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee had the bust converted into a safe and used it to store their most sensitive documents, hidden in plain sight.  That bust must contain the evidence we need.  But [[where could it be|branches]]?  </tw-passagedata>
-<tw-passagedata pid="9" name="branches" tags="" position="425,1245">{
+You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee had the bust converted into a safe and used it to store their most sensitive documents—hidden in plain sight.  The bust must contain the evidence we need.  But [[where could it be|branches]]?  </tw-passagedata>
+<tw-passagedata pid="9" name="branches" tags="" position="424,1245">{
   &lt;!-- Setting these to false if they were uninitialized just simplifies debugging - you can start here without it failing. --&gt;
 
 (if: $doneFilingCabinet is 0)[
@@ -189,10 +198,10 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
 (if: $doneCommitteeMember is 0)[
   (set: $doneCommitteeMember to false)
 ]
-(if: $doneBusinessmanSinclair is 0)[
-  (set: $doneBusinessmanSinclair to false)
+(if: $doneDarkPast is 0)[
+  (set: $doneDarkPast to false)
 ]
-(if: $doneFilingCabinet &amp;&amp; $doneCommitteeMember &amp;&amp; $doneBusinessmanSinclair)[
+(if: $doneFilingCabinet &amp;&amp; $doneCommitteeMember &amp;&amp; $doneDarkPast)[
   (goto: &quot;done-all-branches&quot;)
 ]
 
@@ -210,8 +219,8 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
   (set: $dummy to $options.push(&quot;get some information out of a [[nearby committee member]]&quot;))
 ]
 
-(if: !$doneBusinessmanSinclair)[
-  (set: $dummy to $options.push(&quot;investigate [[businessman Sinclair’s dark past]]&quot;))
+(if: !$doneDarkPast)[
+  (set: $dummy to $options.push(&quot;investigate [[Councillor Cleghorn’s dark past|dark past]]&quot;))
 ]
 
 (if: $options&#39;s length &gt; 1)[
@@ -236,7 +245,7 @@ Have you seen any committee members around? Anyone sitting around sifting throug
 
 You’ve [[found | found-committee-member]] someone?
 </tw-passagedata>
-<tw-passagedata pid="12" name="businessman Sinclair’s dark past" tags="" position="670,1591">[[done|done-businessman-sinclair]]</tw-passagedata>
+<tw-passagedata pid="12" name="dark past" tags="" position="670,1591">[[done|done-dark-past]]</tw-passagedata>
 <tw-passagedata pid="13" name="Footer" tags="footer" position="82,309">{
 (if: (history:)&#39;s length is 0 and 
      (saved-games:) contains &quot;Z&quot;)[
@@ -256,7 +265,7 @@ You’ve [[found | found-committee-member]] someone?
 <tw-passagedata pid="15" name="done-cabinet" tags="" position="104,1449">(set: $doneFilingCabinet to true)
 
 [[Back to the branches |branches]]</tw-passagedata>
-<tw-passagedata pid="16" name="done-businessman-sinclair" tags="" position="798,1240">(set: $doneBusinessmanSinclair to true)
+<tw-passagedata pid="16" name="done-dark-past" tags="" position="798,1240">(set: $doneDarkPast to true)
 
 
 [[Back to the branches |branches]]</tw-passagedata>
