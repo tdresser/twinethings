@@ -40,16 +40,6 @@ tw-story {
 .blood-thumb{
     border-radius: 75%;
 }
-
-
-
-
-
-
-
-
-
-
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">function addMetaViewportTag() {
 	var metaTag=document.createElement('meta');
   metaTag.name = "viewport"
@@ -89,7 +79,7 @@ window.$ = {
 
 
 
-</script><tw-passagedata pid="1" name="Blood Intro - 1" tags="" position="233,304">{
+</script><tw-passagedata pid="1" name="Blood Intro - 1" tags="" position="229,304">{
 (set: $doneFilingCabinet to false)
 (set: $doneCommitteeMember to false)
 (set: $doneBusinessmanSinclair to false)
@@ -208,9 +198,11 @@ You’ve [[found | found-committee-member]] someone?
 	 (load-game: &quot;Z&quot;)
 ]
 
-(if:(save-game:&quot;Z&quot;))[
-](else: )[
-  TODO - remove this. Couldn&#39;t save game.
+(if: (history:)&#39;s length is not 0)[
+	(if:(save-game:&quot;Z&quot;))[
+    ](else: )[
+      TODO - remove this. Couldn&#39;t save game.
+    ]
 ]
 }</tw-passagedata>
 <tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="235,156">(goto: &quot;Blood Intro - 1&quot;)
