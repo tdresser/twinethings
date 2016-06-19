@@ -43,11 +43,15 @@ tw-story {
 .header-text{
 	text-align:center;
 	margin-top:0;
-	white-space: nowrap;
-  overflow: hidden;
-	width:0%;
+}
+
+.animate{
 	animation: type 2s steps(60, end) 799ms;
 	animation-fill-mode: forwards;
+	display:inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+	width:0%;
 	/* alternatively.. */
 	/* animation: blink 1s 3;
 	   width:100%; */
@@ -69,6 +73,7 @@ tw-story {
   to { width: 100%; }
 }
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">function addMetaViewportTag() {
 	var metaTag=document.createElement('meta');
   metaTag.name = "viewport"
@@ -88,6 +93,7 @@ window.$ = {
     }
 	}
 };
+
 
 
 
@@ -297,7 +303,8 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
 ]
 }</tw-passagedata>
 <tw-passagedata pid="22" name="Header" tags="header" position="394,303">&lt;img class=&quot;blood-thumb&quot; src=&quot;assets/incognito.jpg&quot; width=&quot;100&quot; height=&quot;100&quot; alt=&quot;j.blood&quot;&gt;
-&lt;p class=&quot;header-text&quot;&gt;[``**INCOMING MESSAGE**``]&lt;/p&gt;</tw-passagedata>
+&lt;p class=&quot;header-text&quot;&gt;&lt;span class=&quot;animate&quot;&gt;[``**INCOMING MESSAGE**``]&lt;/span&gt;&lt;/p&gt;
+</tw-passagedata>
 </tw-storydata>
 
 
