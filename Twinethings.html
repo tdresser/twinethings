@@ -1,4 +1,4 @@
-<tw-storydata name="Twinethings" startnode="1" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+<tw-storydata name="(1) Stop The Committee!" startnode="1" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 input {
 	display:inline;
 	font-size:1em;
@@ -33,13 +33,14 @@ tw-story {
 }
 
 .animate{
-	animation: type 1s steps(60, end) 799ms;
-	animation-fill-mode: forwards;
+	animation: type 1s steps(60, end) 799ms, blink 1s 1 1799ms;
+	animation-fill-mode: forwards, backwards;
 	display:inline-block;
   white-space: nowrap;
-  overflow: hidden;
+  overflow-y: visible;
+  overflow-x: hidden;
 	width:0%;
-	/* alternatively.. */
+/* alternatively.. */
 	/* animation: blink 1s 3;
 	   width:100%; */
 }
@@ -53,15 +54,16 @@ tw-story {
 }
 
 @keyframes blink{
-  to{opacity: .0;}
+  to {opacity: .0;}
 }
 
 @keyframes type{
   to { width: 100%; }
 	/* Committee */
-	99% {overflow: hidden;}
-	100% {overflow: visible;}
+	99% {overflow-x: hidden;}
+	100% {overflow-x: visible;}
 }
+
 
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">function addMetaViewportTag() {
@@ -83,6 +85,7 @@ window.$ = {
     }
 	}
 };
+
 
 
 
@@ -218,7 +221,7 @@ Have you seen any committee members around? Anyone sitting around sifting throug
 You’ve [[found | found-committee-member]] someone?
 </tw-passagedata>
 <tw-passagedata pid="12" name="businessman Sinclair’s dark past" tags="" position="670,1591">[[done|done-businessman-sinclair]]</tw-passagedata>
-<tw-passagedata pid="13" name="Footer" tags="footer" position="87,306">{
+<tw-passagedata pid="13" name="Footer" tags="footer" position="82,309">{
 (if: (history:)&#39;s length is 0 and 
      (saved-games:) contains &quot;Z&quot;)[
 	 (load-game: &quot;Z&quot;)
