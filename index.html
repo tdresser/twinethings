@@ -46,7 +46,7 @@ tw-story {
 }
 
 .animate{
-	animation: type 2s steps(60, end) 799ms;
+	animation: type 1s steps(60, end) 799ms;
 	animation-fill-mode: forwards;
 	display:inline-block;
   white-space: nowrap;
@@ -71,6 +71,9 @@ tw-story {
 
 @keyframes type{
   to { width: 100%; }
+	/* Committee */
+	99% {overflow: hidden;}
+	100% {overflow: visible;}
 }
 
 
