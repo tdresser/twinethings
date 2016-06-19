@@ -191,7 +191,7 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
   (set: $doneDarkPast to false)
 ]
 (if: $doneFilingCabinet &amp;&amp; $doneCommitteeMember &amp;&amp; $doneDarkPast)[
-  (goto: &quot;done-all-branches&quot;)
+  (goto: &quot;resolution&quot;)
 ]
 
 &lt;!-- Randomize the order of the streams, to encourage people to do them in a varied order. --&gt;
@@ -248,17 +248,26 @@ You’ve [[found | found-committee-member]] someone?
     ]
 ]
 }</tw-passagedata>
-<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="234,156">(goto: &quot;Blood Intro - 1&quot;)
+<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="234,156">(goto: &quot;resolution-2&quot;)
 &lt;!--(goto: &quot;show-contact-documents&quot;)--&gt;
+&lt;!--(goto: &quot;Blood Intro - 1&quot;)--&gt;
 (save-game: &quot;Z&quot;)</tw-passagedata>
 <tw-passagedata pid="15" name="done-cabinet" tags="" position="104,1449">(set: $doneFilingCabinet to true)
 
 [[Back to the branches |branches]]</tw-passagedata>
-<tw-passagedata pid="16" name="done-dark-past" tags="" position="787,1250">(set: $doneDarkPast to true)
+<tw-passagedata pid="16" name="done-dark-past" tags="" position="779,1252">(set: $doneDarkPast to true)
 
 
 [[Back to the branches |branches]]</tw-passagedata>
-<tw-passagedata pid="17" name="done-all-branches" tags="" position="937,939">User is done all the branches!</tw-passagedata>
+<tw-passagedata pid="17" name="resolution" tags="" position="819,913">Well.  Here&#39;s is what we&#39;ve discovered so far.  The last known location of the bust of Kaiser Wilhelm was:
+
+* More than 2km from Old City Hall,
+* Within 2.5km of the Old Barracks (It&#39;s now the Bread and Roses housing co-op), and
+* Within 5km of Waterloo Region Museum.
+
+Hmm.  I think I can see where this is going.  Our contact should have a map, and you can probably work with them to pinpoint a more precise location, if you haven&#39;t guessed it already...
+
+Let me know when you&#39;ve got it [[figured out|resolution-2]].</tw-passagedata>
 <tw-passagedata pid="18" name="empty box input" tags="" position="161,935">{
 (either: &quot;Excuse me?&quot;,
          &quot;You&#39;ve got to tell me what found.&quot;,
@@ -280,7 +289,7 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
   (set: $location to document.getElementById(&quot;bust_distance_museum_location&quot;).value)
   (goto: &quot;check-museum-location&quot;)
 ]</tw-passagedata>
-<tw-passagedata pid="21" name="check-museum-location" tags="" position="491,1776">{
+<tw-passagedata pid="21" name="check-museum-location" tags="" position="491,1775">{
 &lt;!-- Comments in javascript blocks like this explode things. --&gt;
 &lt;!-- TODO - substitute correct number for distance. --&gt;
 
@@ -311,11 +320,22 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
 <tw-passagedata pid="22" name="Header" tags="header" position="394,303">&lt;img class=&quot;blood-thumb&quot; src=&quot;assets/incognito.jpg&quot; width=&quot;100&quot; height=&quot;100&quot; alt=&quot;j.blood&quot;&gt;
 &lt;p class=&quot;header-text&quot;&gt;&lt;span class=&quot;animate&quot;&gt;[``**INCOMING MESSAGE**``]&lt;/span&gt;&lt;/p&gt;
 </tw-passagedata>
-<tw-passagedata pid="23" name="intel" tags="" position="81,1890">Well, it looks here like your committee member is a *really* big fan of camp songs—the file says he &quot;is frequently distracted from his duties by groups of people including him in fun campfire songs, summer camp games, and repeat-after-me songs&quot;.  Hmm.  Seems oddly specific.  Sorry, not much else to go on..
+<tw-passagedata pid="23" name="intel" tags="" position="81,1890">Well, it looks here like your committee member is a *really* big fan of camp songs—the file says he &quot;is frequently distracted from his duties by groups of people including them in fun campfire songs, summer camp games, and repeat-after-me songs&quot;.  Hmm.  Seems oddly specific.  Sorry, not much else to go on..
 
 ...
 
 Once you have the documents, I’ve got a contact at your location who may be able to help you interpret what you find.  You’ll be able to identify my contact by their distinctive hat, and this anti-committee button:
 &lt;img src=&quot;assets/pin.png&quot; width=&quot;200&quot; height=&quot;200&quot; alt=&quot;Committe of 99&quot;&gt;
 Try [[showing them|show-contact-documents]] the documents.</tw-passagedata>
+<tw-passagedata pid="24" name="resolution-2" tags="" position="819,1063">Nice.  Now that we know where the bust is, we can take it from here.
+
+Thanks for your help.  You&#39;ve been instrumental in our efforts to save this city from the hands of the committee.  I knew I was right to trust you.  Don&#39;t think this is the end though...
+
+I&#39;ve got an idea for messing with the committee in the meantime.  Keep an eye on my twitter account, &lt;a href=&quot;https://twitter.com/kwhistorian&quot; target=&quot;_blank&quot;&gt;@kwhistorian&lt;/a&gt; for an update when we&#39;re ready to go.
+
+Never stop seeking,
+
+==&gt;
+
+--Blood</tw-passagedata>
 </tw-storydata>
