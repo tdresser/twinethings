@@ -247,7 +247,13 @@ Have you seen any committee members around? Anyone sitting around sifting throug
 
 You’ve [[found | found-committee-member]] someone?
 </tw-passagedata>
-<tw-passagedata pid="12" name="dark past" tags="" position="670,1591">[[done|done-dark-past]]</tw-passagedata>
+<tw-passagedata pid="12" name="dark past" tags="" position="670,1591">We have pretty good reason to believe Councillor Cleghorn has been heavily involved with a number of the committee&#39;s various plots.
+
+At the moment I can&#39;t really tell you much more about his involvement than that.. Well—there is one thing.  He&#39;s known to be quite vocal with his opinions on the internet.  You can see for yourself: &lt;a href=&quot;https://twitter.com/realCCleghorn&quot; target=&quot;_blank&quot;&gt;@realCCleghorn&lt;/a&gt;.
+
+Maybe see if he&#39;s accidentally divulged any information that could be useful to us.
+
+[[Let me know|found-cleghorn]] if you find anything.</tw-passagedata>
 <tw-passagedata pid="13" name="Footer" tags="footer" position="82,309">{
 (if: (history:)&#39;s length is 0 and 
      (saved-games:) contains &quot;Z&quot;)[
@@ -268,14 +274,39 @@ You’ve [[found | found-committee-member]] someone?
 <tw-passagedata pid="15" name="done-cabinet" tags="" position="104,1449">(set: $doneFilingCabinet to true)
 
 [[Back to the branches |branches]]</tw-passagedata>
-<tw-passagedata pid="16" name="done-dark-past" tags="" position="779,1252">(set: $doneDarkPast to true)
+<tw-passagedata pid="16" name="check-dark-past" tags="" position="779,1252">{
+&lt;!-- Comments in javascript blocks like this explode things. --&gt;
+&lt;!-- Well, some copy pasting of code going on here.. --&gt;
+&lt;!-- I guess we could kind of merge the cheking passages --&gt;
 
+(set: $error to (function() {
+    var location = $locationDP.toLowerCase();
+    var distance = $distanceDP.toLowerCase();
+	var non_number_regex = new RegExp(&quot;[^0-9]&quot;, &quot;g&quot;);
+    var number = distance.replace(non_number_regex, &quot;&quot;);
+	
+    if (location.length === 0)
+	  return &quot;What [[location|found-cleghorn]] are you referring to?  Did you need a reminder as to [[what to do?|dark past]]  Or did you want to [[try something else?|branches]]&quot;;
+	if (number.length === 0) 
+	  return &quot;How [[far away|found-cleghorn]] is it?&quot;;
+	if (location.indexOf(&quot;city hall&quot;) is -1)
+	  return (&quot;It&#39;s more than &quot; + distance + &quot; away from &quot; + location + &quot;? That doesn&#39;t make a whole lot of sense. Are you [[sure|found-cleghorn]]?  Or did you forget [[what you were doing?|dark past]]  Or did you want to [[try something else?|branches]]&quot;);
+	if (number != &quot;2&quot;)
+	  return (&quot;It&#39;s more than&quot; + distance + &quot; away from Old City Hall? That doesn&#39;t seem quite right. Are you [[sure|found-cleghorn]]?&quot;);
+	return &quot;&quot;;
+})())
 
-[[Back to the branches |branches]]</tw-passagedata>
+(if: $error&#39;s length &gt; 0)[
+  (print: $error)
+](else:)[
+  (set: $doneDarkPast to true)
+  (goto: &quot;branches&quot;)
+]
+}</tw-passagedata>
 <tw-passagedata pid="17" name="resolution" tags="" position="819,913">Well.  Here&#39;s is what we&#39;ve discovered so far.  The last known location of the bust of Kaiser Wilhelm was:
 
-* More than 2km from Old City Hall,
-* Within 2.5km of the Old Barracks (It&#39;s now the Bread and Roses housing co-op), and
+* More than 2km from Old City Hall (now the decaying Gruen-esque monstrosity that is Market Square),
+* Within 2.5km of the Old Barracks (its now the Bread and Roses housing co-op), and
 * Within 5km of Waterloo Region Museum.
 
 Hmm.  I think I can see where this is going.  Our contact should have a map, and you can probably work with them to pinpoint a more precise location, if you haven&#39;t guessed it already...
@@ -304,7 +335,6 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
 ]</tw-passagedata>
 <tw-passagedata pid="21" name="check-museum-location" tags="" position="491,1775">{
 &lt;!-- Comments in javascript blocks like this explode things. --&gt;
-&lt;!-- TODO - substitute correct number for distance. --&gt;
 
 (set: $error to (function() {
     var location = $location.toLowerCase();
@@ -342,7 +372,7 @@ Once you have the documents, I’ve got a contact at your location who may be ab
 Try [[showing them|show-contact-documents]] the documents.</tw-passagedata>
 <tw-passagedata pid="24" name="resolution-2" tags="" position="819,1063">Nice.  Now that we know where the bust is, we can take it from here.
 
-Thanks for your help.  You&#39;ve been instrumental in our efforts to save this city from the hands of the committee.  I knew I was right to trust you.  Don&#39;t think this is the end though...
+Thanks for your help.  You&#39;ve been instrumental in the effort to save this city from the hands of the committee.  I knew I was right to trust you.  Don&#39;t think this is the end though...
 
 I&#39;ve got an idea for messing with the committee in the meantime.  Keep an eye on my twitter account, &lt;a href=&quot;https://twitter.com/kwhistorian&quot; target=&quot;_blank&quot;&gt;@kwhistorian&lt;/a&gt; for an update when we&#39;re ready to go.
 
@@ -351,6 +381,19 @@ Never stop seeking,
 ==&gt;
 
 --Blood</tw-passagedata>
+<tw-passagedata pid="25" name="found-cleghorn" tags="" position="841,1450">So you&#39;ve been.. TODO
+
+{&lt;!-- 
+Careful changing whitespace here, it&#39;s a bit fiddly.
+When there are multiple input fields, you need an explicit enter key handler.
+--&gt;}
+The bust is *no closer than* &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;&lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;sure&quot;)}&#39; type=&quot;text&quot; id=&quot;bust_distance&quot;&gt;&lt;/input&gt; from the &lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;sure&quot;)}&#39; type=&quot;text&quot; id=&quot;bust_distance_location&quot;&gt;&lt;/input&gt;&lt;/form&gt;? Are you sure?
+
+(click: &quot;sure&quot;)[
+  (set: $distanceDP to document.getElementById(&quot;bust_distance&quot;).value)
+  (set: $locationDP to document.getElementById(&quot;bust_distance_location&quot;).value)
+  (goto: &quot;check-dark-past&quot;)
+] </tw-passagedata>
 </tw-storydata>
 
 
