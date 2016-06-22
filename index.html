@@ -84,6 +84,7 @@ tw-story {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">function addMetaViewportTag() {
 	var metaTag=document.createElement('meta');
   metaTag.name = "viewport"
@@ -103,6 +104,7 @@ window.$ = {
     }
 	}
 };
+
 
 
 
@@ -381,13 +383,13 @@ Never stop seeking,
 ==&gt;
 
 --Blood</tw-passagedata>
-<tw-passagedata pid="25" name="found-cleghorn" tags="" position="841,1450">So you&#39;ve been.. TODO
+<tw-passagedata pid="25" name="found-cleghorn" tags="" position="841,1450">So you&#39;ve been digging through Cleghorn&#39;s online endeavours?  Have you gleaned any information from his ramblings?
 
 {&lt;!-- 
 Careful changing whitespace here, it&#39;s a bit fiddly.
 When there are multiple input fields, you need an explicit enter key handler.
 --&gt;}
-The bust is *no closer than* &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;&lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;sure&quot;)}&#39; type=&quot;text&quot; id=&quot;bust_distance&quot;&gt;&lt;/input&gt; from the &lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;sure&quot;)}&#39; type=&quot;text&quot; id=&quot;bust_distance_location&quot;&gt;&lt;/input&gt;&lt;/form&gt;? Are you sure?
+Okay.  You&#39;re saying the bust is *no closer than* &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;&lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;sure&quot;)}&#39; type=&quot;text&quot; id=&quot;bust_distance&quot;&gt;&lt;/input&gt; from the &lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;sure&quot;)}&#39; type=&quot;text&quot; id=&quot;bust_distance_location&quot;&gt;&lt;/input&gt;&lt;/form&gt;? Are you sure?
 
 (click: &quot;sure&quot;)[
   (set: $distanceDP to document.getElementById(&quot;bust_distance&quot;).value)
