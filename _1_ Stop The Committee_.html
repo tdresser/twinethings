@@ -72,6 +72,7 @@ tw-story {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">function addMetaViewportTag() {
 	var metaTag=document.createElement('meta');
   metaTag.name = "viewport"
@@ -118,41 +119,42 @@ window.$ = {
 
 
 
-</script><tw-passagedata pid="1" name="Blood Intro - 1" tags="" position="229,304">{
+
+</script><tw-passagedata pid="1" name="Blood Intro - 1" tags="" position="797,150">{
 (set: $doneFilingCabinet to false)
 (set: $doneCommitteeMember to false)
 (set: $doneDarkPast to false)
-Greetings friend, it is good to finally be in touch.  My contacts tell me you seem to be a relaable and resourceful individual.  Most importantly, I sense your commitment to seeking the truth.  So I have chosen you to aid me in the important task of thwarting the [[committee|Blood intro - 2]].  
+Greetings friend, it is good to finally be in touch.  My contacts tell me you seem to be a reliable and resourceful individual.  Most importantly, I sense your commitment to seeking the truth.  And so you have been chosen to aid us in the important task of thwarting the [[Committee of 99|Blood intro - 2]].  
 }</tw-passagedata>
-<tw-passagedata pid="2" name="Blood intro - 2" tags="" position="233,452">For the first time in almost a century, the committee’s members are converging on a single location—where you now are. This may be our one chance to finally obtain concrete evidence of the committee’s past deeds, and finally bring them to justice.  For that I need your [[help|Blood Intro 3]].  </tw-passagedata>
-<tw-passagedata pid="3" name="Blood Intro 3" tags="" position="233,604">Before we continue, you must decide whether or not you will accept this mission. You may learn things you would rather not know about our city’s history.  Your eyes may be opened to truths that cannot be unseen.  As always, the committee is watching, so we must remain vigilant.
+<tw-passagedata pid="2" name="Blood intro - 2" tags="" position="801,298">For the first time in almost a century, the Committee’s members are converging on a single location—where you now are. This may be our one chance to finally obtain concrete evidence of the Committee’s meddling in the history of our city, and finally bring them to justice.  For that I need your [[help|Blood Intro 3]].  </tw-passagedata>
+<tw-passagedata pid="3" name="Blood Intro 3" tags="" position="801,450">Before we continue, you must decide whether or not you will accept this mission. You may learn things you would rather not know about our city’s history.  Your eyes may be opened to truths that cannot be unseen.  As always, the committee is watching, so we must remain vigilant.
 
-Seek truth always,
+With Truth,
 
 ==&gt;
 --Blood
 &lt;==
 
 
-Now.  Are you ready to [[stop the committee|start]]? Or would you rather just [[eat, drink, and be oblivious|lazy]]?</tw-passagedata>
-<tw-passagedata pid="4" name="start" tags="" position="329,785">I’ll try not to take up too much of your time.
+Now.  Are you ready to [[stop the Committee|start]]? Or would you rather just [[eat, drink, and be oblivious|lazy]]?</tw-passagedata>
+<tw-passagedata pid="4" name="start" tags="" position="897,631">I’ll try not to take up too much of your time.
 
-This location was formerly the committee’s primary storage facility. I believe that there may be evidence here that could lead to the arrest of multiple committee members—if we play our cards right, we should be able to [[force the committee to disband|find the box]] once and for all.
+This location was formerly the Committee of 99’s primary storage facility. I believe that there may be evidence here that could lead to the arrest of multiple committee members.  If we play our cards right, we should be able to [[force the Committee to disband|find the box]] once and for all.
 </tw-passagedata>
-<tw-passagedata pid="5" name="lazy" tags="" position="171,781">I guess I was wrong about you.
+<tw-passagedata pid="5" name="lazy" tags="" position="739,627">I guess I was wrong about you.
 
-Let me know if you change your mind, and want to help [[stop the committee|start]].</tw-passagedata>
-<tw-passagedata pid="6" name="find the box" tags="" position="329,935">
-My contact has alerted me of a box located within the building, where the committee of 99 used to keep some of their secret documents.
+Let me know if you change your mind, and want to help [[stop the Committee|start]].</tw-passagedata>
+<tw-passagedata pid="6" name="find the box" tags="" position="897,781">
+My contact has alerted me of an case located within the building.  We suspect it may contain information intended for members of the Committee of 99.  If you can find the case and inspect it&#39;s contents, we may be able to learn their next move.
 
-We know that the box should have the committee&#39;s logo on it:
+We know that the box should have the Committee&#39;s logo on it:
 &lt;img src=&quot;assets/99logo.png&quot; width=&quot;200&quot; height=&quot;200&quot; alt=&quot;Committe of 99&quot;&gt;
 Start there and let me know what you find out.
 
 ...
 
 {
-Interesting, so the committee is looking for
+Interesting, so you know what they&#39;re looking for?  What is it?
 &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;
 &lt;input type=&quot;text&quot; id=&quot;box_input&quot;&gt;
 &lt;/input&gt;&lt;/form&gt;? You&#39;re sure?
@@ -169,7 +171,7 @@ Interesting, so the committee is looking for
 	return &quot;unknown-box&quot;;
   })())
 ]</tw-passagedata>
-<tw-passagedata pid="7" name="unknown-box" tags="" position="283,1097">{
+<tw-passagedata pid="7" name="unknown-box" tags="" position="851,943">{
 (either: &quot;I didn&#39;t quite follow that.&quot;,
          &quot;Sorry, I&#39;m not sure what that is.&quot;,
 		 &quot;You&#39;re not making sense.&quot;,
@@ -177,10 +179,10 @@ Interesting, so the committee is looking for
 
 What did you [[find in the box|find the box]]?
 }</tw-passagedata>
-<tw-passagedata pid="8" name="looking for bust" tags="" position="425,1096">Interesting, so the committee is looking for the bust?
+<tw-passagedata pid="8" name="looking for bust" tags="" position="1056,1003">Interesting, so the Committee is looking for the bust?
 
-You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee had the bust converted into a safe and used it to store their most sensitive documents—hidden in plain sight.  The bust must contain the evidence we need.  But [[where could it be|branches]]?  </tw-passagedata>
-<tw-passagedata pid="9" name="branches" tags="" position="424,1245">{
+You mean the old bust of Kaiser Wilhelm?  Of course.  Rumour has it the Committee of 99 once converted the bust into a safe and used it to store their most sensitive documents—hidden in plain sight.  The bust must contain the evidence we need.  But [[where could it be|branches]]?  </tw-passagedata>
+<tw-passagedata pid="9" name="branches" tags="" position="1055,1200">{
   &lt;!-- Setting these to false if they were uninitialized just simplifies debugging - you can start here without it failing. --&gt;
 
 (if: $doneFilingCabinet is 0)[
@@ -226,24 +228,24 @@ You mean the old bust of Kaiser Wilhelm?  Of course.  Rumor has it the committee
 (print: &quot;I have a couple leads. Let me know where you want to begin:\n\n One is to &quot; + $options[0] + &quot;.\n\n Alternatively, you could  &quot; + $options[1] + &quot;.\n\n You might also want to &quot; + $options[2] + &quot;.&quot;)
 ]
 }</tw-passagedata>
-<tw-passagedata pid="10" name="inconspicuous filing cabinet" tags="" position="118,1256">[[done|done-cabinet]]
+<tw-passagedata pid="10" name="inconspicuous filing cabinet" tags="" position="906,1202">Did I mention area used to be used as the Committee’s archive and storage facility? Well, until it was gutted in a fire. Not sure when exactly, because it was long before my time.
 
+Incidentally the fire and loss of the archive is why the Committee went into such a hard decline. Nobody knew anything… 
 
-
-</tw-passagedata>
-<tw-passagedata pid="11" name="nearby committee member" tags="" position="297,1595">
-Have you seen any committee members around? Anyone sitting around sifting through documents, instead of enjoying the evening? Or dressed strangely formally? The committee always did encourage suits and ties.
+Anyway, we’re looking for a filing cabinet. Probably old and beat up looking. It’ll be marked with the logo, and maybe a date. [[Found it|found-fc]]?</tw-passagedata>
+<tw-passagedata pid="11" name="nearby committee member" tags="" position="1100,1500">
+Have you seen any members of the Committee around? Anyone sitting around sifting through documents, instead of enjoying the evening? Or dressed strangely formal? The Committee always did encourage suits, ties, and distinctive hats.
 
 You’ve [[found | found-committee-member]] someone?
 </tw-passagedata>
-<tw-passagedata pid="12" name="dark past" tags="" position="670,1591">We have pretty good reason to believe Councillor Cleghorn has been heavily involved with a number of the committee&#39;s various plots.
+<tw-passagedata pid="12" name="dark past" tags="" position="1304,1305">We have pretty good reason to believe Councillor Cleghorn has been heavily involved with a number of the Committee of 99&#39;s various plots.
 
-At the moment I can&#39;t really tell you much more about his involvement than that.. Well—there is one thing.  He&#39;s known to be quite vocal with his opinions on the internet.  You can see for yourself: &lt;a href=&quot;https://twitter.com/realCCleghorn&quot; target=&quot;_blank&quot;&gt;@realCCleghorn&lt;/a&gt;.
+At the moment I can&#39;t really tell you much more about his involvement than that.. Well, there is one thing.  He&#39;s known to be quite vocal with his opinions on the internet.  You can see for yourself: &lt;a href=&quot;https://twitter.com/realCCleghorn&quot; target=&quot;_blank&quot;&gt;@realCCleghorn&lt;/a&gt;.
 
 Maybe see if he&#39;s accidentally divulged any information that could be useful to us.
 
 [[Let me know|found-cleghorn]] if you find anything.</tw-passagedata>
-<tw-passagedata pid="13" name="Footer" tags="footer" position="82,309">{
+<tw-passagedata pid="13" name="Footer" tags="footer" position="650,155">{
 (if: (history:)&#39;s length is 0 and 
      (saved-games:) contains &quot;Z&quot;)[
 	 (load-game: &quot;Z&quot;)
@@ -256,14 +258,40 @@ Maybe see if he&#39;s accidentally divulged any information that could be useful
     ]
 ]
 }</tw-passagedata>
-<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="234,156">(goto: &quot;resolution-2&quot;)
+<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="802,2">(goto: &quot;found-fc-3&quot;)
 &lt;!--(goto: &quot;show-contact-documents&quot;)--&gt;
 &lt;!--(goto: &quot;Blood Intro - 1&quot;)--&gt;
 (save-game: &quot;Z&quot;)</tw-passagedata>
-<tw-passagedata pid="15" name="done-cabinet" tags="" position="104,1449">(set: $doneFilingCabinet to true)
+<tw-passagedata pid="15" name="check-cabinet" tags="" position="805,1403">{
+&lt;!-- Comments in javascript blocks like this explode things. --&gt;
+&lt;!-- Well, some copy pasting of code going on here.. --&gt;
+&lt;!-- I guess we could kind of merge the cheking passages --&gt;
 
-[[Back to the branches |branches]]</tw-passagedata>
-<tw-passagedata pid="16" name="check-dark-past" tags="" position="779,1252">{
+(set: $error to (function() {
+    var location = $locationFC.toLowerCase();
+    var distance = $distanceFC.toLowerCase();
+	var non_number_regex = new RegExp(&quot;[^0-9.]&quot;, &quot;g&quot;);
+    var number = distance.replace(non_number_regex, &quot;&quot;);
+	
+    if (location.length === 0)
+	  return &quot;What [[location|TODO]] are you referring to?  Did you need a reminder as to [[what to do?|inconspicuous filing cabinet]]  Or did you want to [[try something else?|branches]]&quot;;
+	if (number.length === 0) 
+	  return &quot;How [[far away|TODO]] is it?&quot;;
+	if (location.indexOf(&quot;barracks&quot;) is -1)
+	  return (&quot;It&#39;s more than &quot; + distance + &quot; away from &quot; + location + &quot;? That doesn&#39;t make a whole lot of sense. Are you [[sure|TODO]]?  Or did you forget [[what you were doing?|inconspicuous filing cabinet]]  Or did you want to [[try something else?|branches]]&quot;);
+	if (number != &quot;2.5&quot;)
+	  return (&quot;It&#39;s more than&quot; + distance + &quot; away from the Old Barracks? That doesn&#39;t seem quite right. Are you [[sure|TODO]]?&quot;);
+	return &quot;&quot;;
+})())
+
+(if: $error&#39;s length &gt; 0)[
+  (print: $error)
+](else:)[
+  (set: $doneFilingCabinet to true)
+  (goto: &quot;branches&quot;)
+]
+}</tw-passagedata>
+<tw-passagedata pid="16" name="check-dark-past" tags="" position="1302,1102">{
 &lt;!-- Comments in javascript blocks like this explode things. --&gt;
 &lt;!-- Well, some copy pasting of code going on here.. --&gt;
 &lt;!-- I guess we could kind of merge the cheking passages --&gt;
@@ -292,7 +320,7 @@ Maybe see if he&#39;s accidentally divulged any information that could be useful
   (goto: &quot;branches&quot;)
 ]
 }</tw-passagedata>
-<tw-passagedata pid="17" name="resolution" tags="" position="819,913">Well.  Here&#39;s is what we&#39;ve discovered so far.  The last known location of the bust of Kaiser Wilhelm was:
+<tw-passagedata pid="17" name="resolution" tags="" position="1203,202">Well.  Here&#39;s is what we&#39;ve discovered so far.  The last known location of the bust of Kaiser Wilhelm was:
 
 * More than 2km from Old City Hall (now the decaying Gruen-esque monstrosity that is Market Square),
 * Within 2.5km of the Old Barracks (its now the Bread and Roses housing co-op), and
@@ -301,16 +329,16 @@ Maybe see if he&#39;s accidentally divulged any information that could be useful
 Hmm.  I think I can see where this is going.  Our contact should have a map, and you can probably work with them to pinpoint a more precise location, if you haven&#39;t guessed it already...
 
 Let me know when you&#39;ve got it [[figured out|resolution-2]].</tw-passagedata>
-<tw-passagedata pid="18" name="empty box input" tags="" position="161,935">{
+<tw-passagedata pid="18" name="empty box input" tags="" position="729,781">{
 (either: &quot;Excuse me?&quot;,
          &quot;You&#39;ve got to tell me what found.&quot;,
 		 &quot;Try typing your answer in the little textbox thing.&quot;)
 
 What did you [[find in the box|find the box]]?
 }</tw-passagedata>
-<tw-passagedata pid="19" name=" found-committee-member" tags="" position="83,1690">I wonder what information they have. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing.  We do have some [[intel]] on that particular committee member..
+<tw-passagedata pid="19" name=" found-committee-member" tags="" position="999,1702">I wonder what information they have. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing.  We do have some [[intel]] on that particular member of the Committee..
 </tw-passagedata>
-<tw-passagedata pid="20" name="show-contact-documents" tags="" position="295,1921">Wonderful, did my contact wearing the anti-committee button provide you with any useful information? Do you know anything more about where the bust is hidden?
+<tw-passagedata pid="20" name="show-contact-documents" tags="" position="1405,1702">Wonderful, did my contact wearing the anti-committee button provide you with any useful information? Do you know anything more about where the bust is hidden?
 {&lt;!-- 
 Careful changing whitespace here, it&#39;s a bit fiddly.
 When there are multiple input fields, you need an explicit enter key handler.
@@ -322,7 +350,7 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
   (set: $location to document.getElementById(&quot;bust_distance_museum_location&quot;).value)
   (goto: &quot;check-museum-location&quot;)
 ]</tw-passagedata>
-<tw-passagedata pid="21" name="check-museum-location" tags="" position="491,1775">{
+<tw-passagedata pid="21" name="check-museum-location" tags="" position="1301,1503">{
 &lt;!-- Comments in javascript blocks like this explode things. --&gt;
 
 (set: $error to (function() {
@@ -349,17 +377,17 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
   (goto: &quot;branches&quot;)
 ]
 }</tw-passagedata>
-<tw-passagedata pid="22" name="Header" tags="header" position="394,303">&lt;img class=&quot;blood-thumb&quot; src=&quot;assets/incognito.jpg&quot; width=&quot;100&quot; height=&quot;100&quot; alt=&quot;j.blood&quot;&gt;
+<tw-passagedata pid="22" name="Header" tags="header" position="962,149">&lt;img class=&quot;blood-thumb&quot; src=&quot;assets/incognito.jpg&quot; width=&quot;100&quot; height=&quot;100&quot; alt=&quot;j.blood&quot;&gt;
 &lt;p class=&quot;header-text&quot;&gt;&lt;span class=&quot;animate&quot;&gt;[``**INCOMING MESSAGE**``]&lt;/span&gt;&lt;/p&gt;
 </tw-passagedata>
-<tw-passagedata pid="23" name="intel" tags="" position="81,1890">Well, it looks here like your committee member is a *really* big fan of camp songs—the file says he &quot;is frequently distracted from his duties when included in fun campfire songs, summer camp games, and repeat-after-me songs by friendly groups of people&quot;.  Hmm.  Seems oddly specific.  Sorry, not much else to go on..
+<tw-passagedata pid="23" name="intel" tags="" position="1204,1806">Well, it looks here like your committee member is a *really* big fan of camp songs—the file says he &quot;is frequently distracted from his duties when included in fun campfire songs, summer camp games, and repeat-after-me songs by friendly groups of people&quot;.  Hmm.  Seems oddly specific.  Sorry, not much else to go on..
 
 ...
 
-Once you have the documents, I’ve got a contact at your location who may be able to help you interpret what you find.  You’ll be able to identify my contact by their distinctive hat, and this anti-committee button:
+Once you have the documents, I’ve got a contact at your location who may be able to help you interpret what you find.  You’ll be able to identify my contact by their distinctive hat, and this anti-Committee button:
 &lt;img src=&quot;assets/pin.png&quot; width=&quot;200&quot; height=&quot;200&quot; alt=&quot;Committe of 99&quot;&gt;
 Try [[showing them|show-contact-documents]] the documents.</tw-passagedata>
-<tw-passagedata pid="24" name="resolution-2" tags="" position="819,1063">Nice.  Now that we know where the bust is, we can take it from here.
+<tw-passagedata pid="24" name="resolution-2" tags="" position="1205,405">Nice.  Now that we know where the bust is, we can take it from here.
 
 Thanks for your help.  You&#39;ve been instrumental in the effort to save this city from the hands of the committee.  I knew I was right to trust you.  Don&#39;t think this is the end though...
 
@@ -370,7 +398,7 @@ Never stop seeking,
 ==&gt;
 
 --Blood</tw-passagedata>
-<tw-passagedata pid="25" name="found-cleghorn" tags="" position="841,1450">So you&#39;ve been digging through Cleghorn&#39;s online endeavours?  Have you gleaned any information from his ramblings?
+<tw-passagedata pid="25" name="found-cleghorn" tags="" position="1501,1204">So you&#39;ve been digging through Cleghorn&#39;s online endeavours?  Have you gleaned any information from his ramblings?
 
 {&lt;!-- 
 Careful changing whitespace here, it&#39;s a bit fiddly.
@@ -383,4 +411,62 @@ Okay.  You&#39;re saying the bust is *no closer than* &lt;form onsubmit=&#39;$.e
   (set: $locationDP to document.getElementById(&quot;bust_distance_location&quot;).value)
   (goto: &quot;check-dark-past&quot;)
 ] </tw-passagedata>
+<tw-passagedata pid="26" name="TODO" tags="" position="724,1633">DELETE THIS PASSAGE - PLACEHOLDER
+</tw-passagedata>
+<tw-passagedata pid="27" name="found-fc" tags="" position="704,1102">This is where things get complicated. The Committee of 99 uses a bunch of codes and ciphers (two different things btw!) to protect their most secret information. 
+
+Our goal here is to piece together a sentence that has been hidden through the archival material here. We have directions, but we need to break the ciphered to properly understand them. This is what I’m looking at in my copy of the Master Plan:
+
+[code]
+
+Each series of letters corresponds to a file in the cabinet, then to an article within that file, then a paragraph within the article, and finally a specific word within the paragraph.
+
+We could just guess, based on statistics, but I know how to find the Key to the cipher. Please don’t ask how. Let’s just say there’s a reason the mayor is bald… 
+
+Does this make [[sense to you|found-fc-2]]? Or not?</tw-passagedata>
+<tw-passagedata pid="28" name="found-fc-2" tags="" position="504,1099">The Key word we need to break the cipher is hidden in a file labelled (bizarrely) “H.B.S. - Weekly Poultry Column.” Find the article labelled ‘Magister’
+
+Have you [[found it|found-fc-3]]?</tw-passagedata>
+<tw-passagedata pid="29" name="found-fc-3" tags="" position="303,1099">Ok, now read up to the first time this “H.B.S.” says the word ‘chicken’ and count backwards seven words. The seventh word is the Key word, and the one we need. 
+
+What word did you get? [it should be: ‘poultrymen’]
+
+[[Got it?|found-fc-4]]</tw-passagedata>
+<tw-passagedata pid="30" name="found-fc-4" tags="" position="303,1308">Sure. Sounds about absurd enough for Co99. If you want to break the cipher yourself write out the alphabet on a line, then directly below it write ‘pountrymen’ and fill in the rest of the alphabet without repeating letters. Let me know when you’re done breaking the cipher. 
+
+Unless you just want me to do it… I’ve gotten pretty good at [[these things|found-fc-5]].</tw-passagedata>
+<tw-passagedata pid="31" name="found-fc-5" tags="" position="303,1458">This is what I got. Look ok?
+
+A|P
+B|O
+C|U
+D|L
+E|T
+F|R
+G|Y
+H|M
+I|E
+J|N
+K|A
+L|B
+M|C
+N|D
+O|F
+P|G
+Q|H
+R|I
+S|J
+T|K
+U|Q
+V|S
+W|V
+X|W
+Y|X
+Z|Z
+
+So if I write my name in this cipher it’d be OBFFL (B=O, L=B, B=D etc.)
+
+Which means the directions should look like this:
+
+[ code ]</tw-passagedata>
 </tw-storydata>
