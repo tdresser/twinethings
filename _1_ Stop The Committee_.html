@@ -280,39 +280,10 @@ Maybe check if he&#39;s accidentally divulged any information that could be usef
 &lt;!--(goto: &quot;show-contact-documents&quot;)--&gt;
 &lt;!--(goto: &quot;Blood Intro - 1&quot;)--&gt;
 (save-game: &quot;Z&quot;)</tw-passagedata>
-<tw-passagedata pid="15" name="check-cabinet" tags="" position="805,1403">{
+<tw-passagedata pid="15" name="check-dark-past" tags="" position="1302,1102">{
 &lt;!-- Comments in javascript blocks like this explode things. --&gt;
 &lt;!-- Well, some copy pasting of code going on here.. --&gt;
 &lt;!-- I guess we could kind of merge the cheking passages --&gt;
-
-(set: $error to (function() {
-    var location = $locationFC.toLowerCase();
-    var distance = $distanceFC.toLowerCase();
-	var non_number_regex = new RegExp(&quot;[^0-9.]&quot;, &quot;g&quot;);
-    var number = distance.replace(non_number_regex, &quot;&quot;);
-	
-    if (location.length === 0)
-	  return &quot;What [[location|TODO]] are you referring to?  Did you need a reminder as to [[what to do?|inconspicuous filing cabinet]]  Or did you want to [[try something else?|branches]]&quot;;
-	if (number.length === 0) 
-	  return &quot;How [[far away|TODO]] is it?&quot;;
-	if (location.indexOf(&quot;barracks&quot;) is -1)
-	  return (&quot;It&#39;s more than &quot; + distance + &quot; away from &quot; + location + &quot;? That doesn&#39;t make a whole lot of sense. Are you [[sure|TODO]]?  Or did you forget [[what you were doing?|inconspicuous filing cabinet]]  Or did you want to [[try something else?|branches]]&quot;);
-	if (number != &quot;2.5&quot;)
-	  return (&quot;It&#39;s more than&quot; + distance + &quot; away from the Old Barracks? That doesn&#39;t seem quite right. Are you [[sure|TODO]]?&quot;);
-	return &quot;&quot;;
-})())
-
-(if: $error&#39;s length &gt; 0)[
-  (print: $error)
-](else:)[
-  (set: $doneFilingCabinet to true)
-  (goto: &quot;branches&quot;)
-]
-}</tw-passagedata>
-<tw-passagedata pid="16" name="check-dark-past" tags="" position="1302,1102">{
-&lt;!-- Comments in javascript blocks like this explode things. --&gt;
-&lt;!-- Well, some copy pasting of code going on here.. --&gt;
-&lt;!-- I guess we could kind of merge the checking passages --&gt;
 
 (set: $error to (function() {
     var location = $locationDP.toLowerCase();
@@ -338,7 +309,7 @@ Maybe check if he&#39;s accidentally divulged any information that could be usef
   (goto: &quot;branches&quot;)
 ]
 }</tw-passagedata>
-<tw-passagedata pid="17" name="resolution" tags="" position="1203,202">Well.  Here&#39;s is what we&#39;ve discovered so far.  The last known location of the bust of Kaiser Wilhelm was:
+<tw-passagedata pid="16" name="resolution" tags="" position="1203,202">Well.  Here&#39;s is what we&#39;ve discovered so far.  The last known location of the bust of Kaiser Wilhelm was:
 
 * More than 2km from Old City Hall (now the decaying Gruen-esque monstrosity that is Market Square),
 * Within 2.5km of the Old Barracks (its now the Bread and Roses housing co-op), and
@@ -347,16 +318,16 @@ Maybe check if he&#39;s accidentally divulged any information that could be usef
 Hmm.  I think I can see where this is going.  Our contact should have a map, and you can probably work with them to pinpoint a more precise location, if you haven&#39;t guessed it already...
 
 Let me know when you&#39;ve got it [[figured out|resolution-2]].</tw-passagedata>
-<tw-passagedata pid="18" name="empty box input" tags="" position="729,781">{
+<tw-passagedata pid="17" name="empty box input" tags="" position="729,781">{
 (either: &quot;Excuse me?&quot;,
          &quot;You&#39;ve got to tell me what found.&quot;,
 		 &quot;Try typing your answer in the little textbox thing.&quot;)
 
 What did you [[find in the box|find the box]]?
 }</tw-passagedata>
-<tw-passagedata pid="19" name=" found-committee-member" tags="" position="999,1702">I wonder what information they have. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing.  We do have some [[intel]] on that particular member of the Committee...
+<tw-passagedata pid="18" name=" found-committee-member" tags="" position="999,1702">I wonder what information they have. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing.  We do have some [[intel]] on that particular member of the Committee..
 </tw-passagedata>
-<tw-passagedata pid="20" name="show-contact-documents" tags="" position="1405,1702">Wonderful, did my contact wearing the anti-committee button provide you with any useful information? Do you know anything more about where the bust is hidden?
+<tw-passagedata pid="19" name="show-contact-documents" tags="" position="1405,1702">Wonderful, did my contact wearing the anti-committee button provide you with any useful information? Do you know anything more about where the bust is hidden?
 {&lt;!-- 
 Careful changing whitespace here, it&#39;s a bit fiddly.
 When there are multiple input fields, you need an explicit enter key handler.
@@ -368,7 +339,7 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
   (set: $location to document.getElementById(&quot;bust_distance_museum_location&quot;).value)
   (goto: &quot;check-museum-location&quot;)
 ]</tw-passagedata>
-<tw-passagedata pid="21" name="check-museum-location" tags="" position="1301,1503">{
+<tw-passagedata pid="20" name="check-museum-location" tags="" position="1301,1503">{
 &lt;!-- Comments in javascript blocks like this explode things. --&gt;
 
 (set: $error to (function() {
@@ -395,17 +366,17 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
   (goto: &quot;branches&quot;)
 ]
 }</tw-passagedata>
-<tw-passagedata pid="22" name="Header" tags="header" position="962,149">&lt;img class=&quot;blood-thumb&quot; src=&quot;assets/incognito.png&quot; width=&quot;93&quot; height=&quot;100&quot; alt=&quot;j.blood&quot;&gt;
+<tw-passagedata pid="21" name="Header" tags="header" position="962,149">&lt;img class=&quot;blood-thumb&quot; src=&quot;assets/incognito.jpg&quot; width=&quot;100&quot; height=&quot;100&quot; alt=&quot;j.blood&quot;&gt;
 &lt;p class=&quot;header-text&quot;&gt;&lt;span class=&quot;animate&quot;&gt;[``**INCOMING MESSAGE**``]&lt;/span&gt;&lt;/p&gt;
 </tw-passagedata>
-<tw-passagedata pid="23" name="intel" tags="" position="1204,1806">Well, it looks here like your committee member is a *really* big fan of camp songs—the file says he &quot;is frequently distracted from his duties when included in fun campfire songs, summer camp games, and repeat-after-me songs by friendly groups of people&quot;.  Hmm.  Seems oddly specific.  Sorry, not much else to go on...
+<tw-passagedata pid="22" name="intel" tags="" position="1204,1806">Well, it looks here like your committee member is a *really* big fan of camp songs—the file says he &quot;is frequently distracted from his duties when included in fun campfire songs, summer camp games, and repeat-after-me songs by friendly groups of people&quot;.  Hmm.  Seems oddly specific.  Sorry, not much else to go on..
 
 ...
 
 Once you have the documents, I’ve got a contact at your location who may be able to help you interpret what you find.  You’ll be able to identify my contact by their distinctive hat, and this anti-Committee button:
 &lt;img src=&quot;assets/pin.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; alt=&quot;Committe of 99&quot;&gt;
 Try [[showing them|show-contact-documents]] the documents.</tw-passagedata>
-<tw-passagedata pid="24" name="resolution-2" tags="" position="1205,405">Nice.  Now that we know where the bust is, we can take it from here.
+<tw-passagedata pid="23" name="resolution-2" tags="" position="1205,405">Nice.  Now that we know where the bust is, we can take it from here.
 
 Thanks for your help.  You&#39;ve been instrumental in the effort to save this city from the hands of the committee.  I knew I was right to trust you.  Don&#39;t think this is the end though...
 
@@ -416,7 +387,7 @@ Never stop seeking,
 ==&gt;
 
 --Blood</tw-passagedata>
-<tw-passagedata pid="25" name="found-cleghorn" tags="" position="1501,1204">So you&#39;ve been digging through Cleghorn&#39;s online endeavours?  Have you gleaned any information from his ramblings?
+<tw-passagedata pid="24" name="found-cleghorn" tags="" position="1501,1204">So you&#39;ve been digging through Cleghorn&#39;s online endeavours?  Have you gleaned any information from his ramblings?
 
 {&lt;!-- 
 Careful changing whitespace here, it&#39;s a bit fiddly.
@@ -429,31 +400,35 @@ Okay.  You&#39;re saying the bust is *no closer than* &lt;form onsubmit=&#39;$.e
   (set: $locationDP to document.getElementById(&quot;bust_distance_location&quot;).value)
   (goto: &quot;check-dark-past&quot;)
 ] </tw-passagedata>
-<tw-passagedata pid="26" name="TODO" tags="" position="724,1633">DELETE THIS PASSAGE - PLACEHOLDER
-</tw-passagedata>
-<tw-passagedata pid="27" name="found-fc" tags="" position="704,1102">This is where things get complicated. The Committee of 99 uses a bunch of codes and ciphers (two different things btw!) to protect their most secret information. 
+<tw-passagedata pid="25" name="found-fc" tags="" position="704,1102">This is where things get complicated. The Committee of 99 uses a bunch of codes and ciphers (two different things btw!) to protect their most secret information. 
 
-Our goal here is to piece together a sentence that has been hidden through the archival material here. We have directions, but we need to break the cipher to properly understand them. This is what I’m looking at in my copy of the Master Plan:
+Our goal here is to piece together a sentence that has been hidden through the archival material here. We have directions, but we need to break the ciphered to properly understand them. This is what I’m looking at in my copy of the Master Plan:
 
-[code]
+1. U-EEE/W-EEE,Teymkm
+2. P-EEE/SEEE-E,Rerkm
+3. R-EEE/WWW-WEE, Kmeikx rerkm
+4. R-S/WWWE-S, Jewkttdkm
+5. O-EEE/W-W, Jewkm
+6. U-EEE/WEEE-SE, Kvtdk jewkm
 
 Each series of letters corresponds to a file in the cabinet, then to an article within that file, then a paragraph within the article, and finally a specific word within the paragraph.
 
 We could just guess, based on statistics, but I know how to find the Key to the cipher. Please don’t ask how. Let’s just say there’s a reason the mayor is bald… 
 
-Does this make [[sense to you|found-fc-2]]? Or not?</tw-passagedata>
-<tw-passagedata pid="28" name="found-fc-2" tags="" position="504,1099">The Key word we need to break the cipher is hidden in a file labelled (bizarrely) “H.B.S. - Weekly Poultry Column.” Find the article labelled ‘Magister’
+Does this make [[sense to you|found-fc-2]]? [[Or not at all?|I dont get it]]</tw-passagedata>
+<tw-passagedata pid="26" name="found-fc-2" tags="" position="504,1099">The Key word we need to break the cipher is hidden in a file labelled (bizarrely) “H.B.S. - Weekly Poultry Column.” Find the article labelled ‘Magister’
 
 Have you [[found it|found-fc-3]]?</tw-passagedata>
-<tw-passagedata pid="29" name="found-fc-3" tags="" position="303,1099">Ok, now read up to the first time this “H.B.S.” says the word ‘chicken’ and count backwards seven words. The seventh word is the Key word, and the one we need. 
+<tw-passagedata pid="27" name="found-fc-3" tags="" position="303,1099">Ok, now read up to the first time this “H.B.S.” says the word ‘chicken’ and count backwards seven words. The seventh word is the Key word, and the one we need. 
 
-What word did you get? [it should be: ‘poultrymen’]
+What word did you get?
+
 
 [[Got it?|found-fc-4]]</tw-passagedata>
-<tw-passagedata pid="30" name="found-fc-4" tags="" position="303,1308">Sure. Sounds about absurd enough for Co99. If you want to break the cipher yourself write out the alphabet on a line, then directly below it write ‘pountrymen’ and fill in the rest of the alphabet without repeating letters. Let me know when you’re done breaking the cipher. 
+<tw-passagedata pid="28" name="found-fc-4" tags="" position="303,1308">Sure. Sounds about absurd enough for Co99. If you want to break the cipher yourself write out the alphabet on a line, then directly below it write ‘pountrymen’ and fill in the rest of the alphabet without repeating letters. Let me know when you’re done breaking the cipher. 
 
 Unless you just want me to do it… I’ve gotten pretty good at [[these things|found-fc-5]].</tw-passagedata>
-<tw-passagedata pid="31" name="found-fc-5" tags="" position="303,1458">This is what I got. Look ok?
+<tw-passagedata pid="29" name="found-fc-5" tags="" position="303,1458">This is what I got. Look ok?
 
 =&gt;&lt;=
 A|P
@@ -490,9 +465,211 @@ Which means the directions should look like this:
 
 [ code ]
 
-[[Got it|found-fc-6]]</tw-passagedata>
-<tw-passagedata pid="32" name="found-fc-6" tags="" position="303,1608">I guess I should explain what that means. The first letter is the file. The backslash denotes an additional direction, so the next one looks like a date in Roman numerals, so that will be the article we want. After that is another letter… hmm… I going to guess here, and say it’s probably alpha-numeric, so for the first one, ‘[letter]’ that would mean paragraph ‘[number]’. Finally the word in that paragraph. So the first direction is in file [letter], in an article dated [month/day], in paragraph ‘[letter]’ which we know is the [numberth] paragraph, and the [numberth] word. 
+[[Got it?|fc-code-1]]</tw-passagedata>
+<tw-passagedata pid="30" name="fc-code-1" tags="" position="303,1608">I guess I should explain what that means, using the first direction code, U - EEE/W - EEE,Teymkm. 
 
+The first letter is the file. You&#39;ll see that they are all marked with a letter. For number 1 on that list &#39;U&#39; would be folder &#39;C&#39;.
+
+The next part, after the dash, looks like a date in Roman numerals, so that will be the article we want. So EEE/W would be III/V which would probably be March 5th.
+
+After that is looks like an other numeral, 3 again. That means the third paragraph. 
+
+Finally the word in that paragraph. In this case Teymkm is Eighth 
+
+So the first direction is in file C, in an article dated March 5th, in paragraph three. Then count over to the eighth word. 
+
+{
 What does that give you?
-[ word ] </tw-passagedata>
+&lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;
+&lt;input type=&quot;text&quot; id=&quot;box_input&quot;&gt;
+&lt;/input&gt;&lt;/form&gt;? You&#39;re sure?
+}
+
+(click: &quot;sure&quot;)[
+  (set: $box to document.getElementById(&quot;box_input&quot;).value)
+  (go-to: (function() {
+    var box = $box.toLowerCase();
+	if (box.length == 0) {
+	  return &quot;fc-code-1&quot;;
+	} else if (box.indexOf(&quot;kaiser&quot;) &gt; -1)
+	  return &quot;fc-code-2&quot;;
+	return &quot;wrong-box-1&quot;;
+  })())
+]</tw-passagedata>
+<tw-passagedata pid="31" name="I dont get it" tags="" position="577,1252">There is a difference between a cipher and a code.
+
+A substitution cipher, like the one used by the Committee of 99, works at a low level; individual letters. By changing the layout of the alphabet (see below) letters are substituted for other letters. By first writing out a keyword then writing all the remaining letters in the alphabet in the usual order you create a &#39;new&#39; alphabet.
+
+Plaintext alphabet:	   ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Ciphertext alphabet:   ZEBRASCDFGHIJKLMNOPQTUVWXY
+
+In this case to encipher a word you first look at the plaintext alphabet and transpose the letter to the ciphertext alphabet. 
+For example: Blood becomes EILLR 
+
+A code on the other hand works on a higher level, where whole words or phrases from the message are transformed into an obscured form so it cannot be understood. Special information or a Key is required to read the original message. The usual method is to use a codebook with a list of common phrases or words matched with a codeword.
+
+[[Does that make sense?|found-fc-2]] [[Or not at all?|I-dont-get-it-3]]</tw-passagedata>
+<tw-passagedata pid="32" name="I-dont-get-it-3" tags="" position="430,1308">Ok. Don&#39;t panic. Somewhere around is my associate. You may have spoken with them already. They&#39;re wearing some sort of an odd hat and are probably near a table...
+
+[[Once you&#39;ve talked to them let me know.|found-fc-2]]</tw-passagedata>
+<tw-passagedata pid="33" name="fc-code-2" tags="" position="303,1758">Sounds alright. So the next is P - EEE/SEEE - E,Rerkm which translates to A - March 8th - 1,fifth
+
+{
+What does that give you?
+&lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;
+&lt;input type=&quot;text&quot; id=&quot;box_input&quot;&gt;
+&lt;/input&gt;&lt;/form&gt;? You&#39;re sure?
+}
+
+(click: &quot;sure&quot;)[
+  (set: $box to document.getElementById(&quot;box_input&quot;).value)
+  (go-to: (function() {
+    var box = $box.toLowerCase();
+	if (box.length == 0) {
+	  return &quot;fc-code-2&quot;;
+	} else if (box.indexOf(&quot;two&quot;) &gt; -1)
+	  return &quot;fc-code-3&quot;;
+	return &quot;wrong-box-2&quot;;
+  })())
+]</tw-passagedata>
+<tw-passagedata pid="34" name="fc-final" tags="" position="309,2490">So in the end we have... Let&#39;s see here...
+
+&quot;Kaiser two point five from barracks&quot;
+
+Not entirely sure what that means, but I suspect it&#39;ll be clearer with the other clues.
+
+Do you know where the old barracks are? I&#39;m sure there&#39;s a mention in those files somewhere...
+
+
+
+(set: $doneFilingCabinet to true)
+[[That&#39;s all I need here.|branches]]</tw-passagedata>
+<tw-passagedata pid="35" name="fc-code-3" tags="" position="303,1908">Sounds alright. Next up is 
+
+{
+What word is that?
+&lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;
+&lt;input type=&quot;text&quot; id=&quot;box_input&quot;&gt;
+&lt;/input&gt;&lt;/form&gt;? You&#39;re sure?
+}
+
+(click: &quot;sure&quot;)[
+  (set: $box to document.getElementById(&quot;box_input&quot;).value)
+  (go-to: (function() {
+    var box = $box.toLowerCase();
+	if (box.length == 0) {
+	  return &quot;fc-code-3&quot;;
+	} else if (box.indexOf(&quot;point&quot;) &gt; -1)
+	  return &quot;fc-code-4&quot;;
+	return &quot;wrong-box-3&quot;;
+  })())
+]</tw-passagedata>
+<tw-passagedata pid="36" name="fc-code-4" tags="" position="303,2058">Sounds alright. What’s next?
+
+{
+What does that give you?
+&lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;
+&lt;input type=&quot;text&quot; id=&quot;box_input&quot;&gt;
+&lt;/input&gt;&lt;/form&gt;? You&#39;re sure?
+}
+
+(click: &quot;sure&quot;)[
+  (set: $box to document.getElementById(&quot;box_input&quot;).value)
+  (go-to: (function() {
+    var box = $box.toLowerCase();
+	if (box.length == 0) {
+	  return &quot;fc-code-4&quot;;
+	} else if (box.indexOf(&quot;five&quot;) &gt; -1)
+	  return &quot;fc-code-5&quot;;
+	return &quot;wrong-box-4&quot;;
+  })())
+]</tw-passagedata>
+<tw-passagedata pid="37" name="wrong-box-1" tags="" position="450,1612">{
+(either: &quot;I didn&#39;t quite follow that.&quot;,
+         &quot;Sorry, I&#39;m not sure what that is.&quot;,
+		 &quot;You&#39;re not making sense.&quot;,
+		 &quot;I&#39;m not even sure what a $box is...&quot;)
+
+What word did you [[find|fc-code-1]?
+}</tw-passagedata>
+<tw-passagedata pid="38" name="wrong-box-2" tags="" position="447,1748">{
+(either: &quot;I didn&#39;t quite follow that.&quot;,
+         &quot;Sorry, I&#39;m not sure what that is.&quot;,
+		 &quot;You&#39;re not making sense.&quot;,
+		 &quot;I&#39;m not even sure what a $box is...&quot;)
+
+What word did you [[find|fc-code-2]?
+}</tw-passagedata>
+<tw-passagedata pid="39" name="wrong-box-3" tags="" position="444,1908">{
+(either: &quot;I didn&#39;t quite follow that.&quot;,
+         &quot;Sorry, I&#39;m not sure what that is.&quot;,
+		 &quot;You&#39;re not making sense.&quot;,
+		 &quot;I&#39;m not even sure what a $box is...&quot;)
+
+What word did you [[find|fc-code-3]?
+}</tw-passagedata>
+<tw-passagedata pid="40" name="wrong-box-4" tags="" position="445,2061">{
+(either: &quot;I didn&#39;t quite follow that.&quot;,
+         &quot;Sorry, I&#39;m not sure what that is.&quot;,
+		 &quot;You&#39;re not making sense.&quot;,
+		 &quot;I&#39;m not even sure what a $box is...&quot;)
+
+What word did you [[find|fc-code-4]?
+}</tw-passagedata>
+<tw-passagedata pid="41" name="fc-code-5" tags="" position="300,2202">Got it. I have an idea where this is going... but I need more info.
+
+{
+What have you got?
+&lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;
+&lt;input type=&quot;text&quot; id=&quot;box_input&quot;&gt;
+&lt;/input&gt;&lt;/form&gt;? You&#39;re sure?
+}
+
+(click: &quot;sure&quot;)[
+  (set: $box to document.getElementById(&quot;box_input&quot;).value)
+  (go-to: (function() {
+    var box = $box.toLowerCase();
+	if (box.length == 0) {
+	  return &quot;fc-code-5&quot;;
+	} else if (box.indexOf(&quot;from&quot;) &gt; -1)
+	  return &quot;fc-code-6&quot;;
+	return &quot;wrong-box-5&quot;;
+  })())
+]</tw-passagedata>
+<tw-passagedata pid="42" name="fc-code-6" tags="" position="297,2346">This one, and then we&#39;re done.
+
+{
+What&#39;s the next word?
+&lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#39;&gt;
+&lt;input type=&quot;text&quot; id=&quot;box_input&quot;&gt;
+&lt;/input&gt;&lt;/form&gt;? You&#39;re sure?
+}
+
+(click: &quot;sure&quot;)[
+  (set: $box to document.getElementById(&quot;box_input&quot;).value)
+  (go-to: (function() {
+    var box = $box.toLowerCase();
+	if (box.length == 0) {
+	  return &quot;fc-code-6&quot;;
+	} else if (box.indexOf(&quot;barracks&quot;) &gt; -1)
+	  return &quot;fc-final&quot;;
+	return &quot;wrong-box-5&quot;;
+  })())
+]</tw-passagedata>
+<tw-passagedata pid="43" name="wrong-box-5" tags="" position="447,2198">{
+(either: &quot;I didn&#39;t quite follow that.&quot;,
+         &quot;Sorry, I&#39;m not sure what that is.&quot;,
+		 &quot;You&#39;re not making sense.&quot;,
+		 &quot;I&#39;m not even sure what a $box is...&quot;)
+
+What word did you [[find|fc-code-5]?
+}</tw-passagedata>
+<tw-passagedata pid="44" name="wrong-box-6" tags="" position="439,2345">{
+(either: &quot;I didn&#39;t quite follow that.&quot;,
+         &quot;Sorry, I&#39;m not sure what that is.&quot;,
+		 &quot;You&#39;re not making sense.&quot;,
+		 &quot;I&#39;m not even sure what a $box is...&quot;)
+
+What word did you [[find|fc-code-6]?
+}</tw-passagedata>
 </tw-storydata>
