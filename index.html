@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="(1) Stop The Committee!" startnode="14" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+<tw-storydata name="(1) Stop The Committee!" startnode="1" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 input {
 	display:inline;
 	font-size:1em;
@@ -286,7 +286,7 @@ The fire and loss of the archive is why the Committee went into such a hard decl
 
 Anyway, we’re looking for a filing cabinet. Probably old and beat up looking. It’ll be marked with the logo, and maybe a date. [[Found it|found-fc]]?</tw-passagedata>
 <tw-passagedata pid="11" name="nearby committee member" tags="" position="1100,1500">
-Have you seen any members of the Committee around? Anyone sitting around sifting through documents, instead of enjoying the evening? Or dressed strangely formal? The Committee always did encourage suits, ties, and distinctive hats.
+Have you seen any members of the Committee around? Anyone sitting around sifting through documents, instead of enjoying the evening? Or dressed in strangely formal clothes? The Committee always did encourage suits, ties, and distinctive hats.
 
 You’ve [[found | found-committee-member]] someone?
 </tw-passagedata>
@@ -331,7 +331,7 @@ Maybe check if he&#39;s accidentally divulged any information that could be usef
 	if (location.indexOf(&quot;city hall&quot;) is -1)
 	  return (&quot;It&#39;s more than &quot; + distance + &quot; away from &quot; + location + &quot;? That doesn&#39;t make a whole lot of sense. Are you [[sure|found-cleghorn]]?  Or did you forget [[what you were doing?|dark past]]  Or did you want to [[try something else?|branches]]&quot;);
 	if (number != &quot;2&quot;)
-	  return (&quot;It&#39;s more than&quot; + distance + &quot; away from Old City Hall? That doesn&#39;t seem quite right. Are you [[sure|found-cleghorn]]?&quot;);
+	  return (&quot;It&#39;s more than &quot; + distance + &quot; away from Old City Hall? That doesn&#39;t seem quite right. Are you [[sure|found-cleghorn]]?&quot;);
 	return &quot;&quot;;
 })())
 
@@ -360,7 +360,9 @@ Let me know when you&#39;ve got it [[figured out|resolution-2]].</tw-passagedata
 
 What did you [[find in the box|find the box]]?
 }</tw-passagedata>
-<tw-passagedata pid="18" name=" found-committee-member" tags="" position="999,1702">I wonder what information they have. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing.  We do have some [[intel]] on that particular member of the Committee..
+<tw-passagedata pid="18" name=" found-committee-member" tags="" position="999,1702">I wonder what information they have. We do have some [[intel]] on that particular member of the Committee...
+
+See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing.  
 </tw-passagedata>
 <tw-passagedata pid="19" name="show-contact-documents" tags="" position="1405,1702">Wonderful, did my contact wearing the anti-committee button provide you with any useful information? Do you know anything more about where the bust is hidden?
 {&lt;!-- 
@@ -408,7 +410,7 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
 
 ...
 
-Once you have the documents, I’ve got a contact at your location who may be able to help you interpret what you find.  You’ll be able to identify my contact by their distinctive hat, and this anti-Committee button:
+Once you have removed the documents from the briefcase, I’ve got a contact at your location who may be able to help you interpret what you find.  You’ll be able to identify my contact by their distinctive hat, and this anti-Committee button:
 &lt;img src=&quot;assets/pin.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; alt=&quot;Committe of 99&quot;&gt;
 Try [[showing them|show-contact-documents]] the documents.</tw-passagedata>
 <tw-passagedata pid="23" name="resolution-2" tags="" position="1205,405">Nice.  Now that we know where the bust is, I can take it from here.
@@ -443,7 +445,7 @@ Our goal is to piece together a sentence that has been hidden in the archival ma
 2. P-EEE/SEEE-E,Rerkm
 3. POINT
 4. R-S/WWWE-S, Jewkttdkm
-5. U-EEE/WEEE-SE, Kvtdk jewkm
+5. U-EEE/WEEE-E, Rerkttdkm
 
 Each series of letters corresponds to a file in the cabinet, then to an article within that file, then a paragraph within the article, and finally a specific word within the paragraph.
 
@@ -596,6 +598,8 @@ What word is that?
     var box = $box.toLowerCase();
 	if (box.indexOf(&quot;five&quot;) &gt; -1)
 	  return &quot;fc-code-3&quot;;
+    if (box.indexOf(&quot;5&quot;) &gt; -1)
+	  return &quot;fc-code-3&quot;;
 	return &quot;wrong-box-2&quot;;
   })())
 ]</tw-passagedata>
@@ -617,7 +621,7 @@ What word did you [[find|fc-code-2]]?
 }</tw-passagedata>
 <tw-passagedata pid="36" name="fc-code-3" tags="" position="294.0001,1861">This one, and then we&#39;re done.
 
-U-EEE/WEEE-SE, Kvtdk jewkm should be folder C, March 13th, paragraph 6, twenty-sixth word. Get counting!
+U-EEE/WEEE-E, Rerkttdkm should be folder C, March 13th, paragraph 1, fifteenth word. Get counting!
 
 {
 What&#39;s the next word?
@@ -630,7 +634,7 @@ What&#39;s the next word?
   (set: $box to document.getElementById(&quot;box_input&quot;).value)
   (go-to: (function() {
     var box = $box.toLowerCase();
-	if (box.indexOf(&quot;barracks&quot;) &gt; -1)
+	if (box.indexOf(&quot;barrack&quot;) &gt; -1)
 	  return &quot;fc-final&quot;;
 	return &quot;wrong-box-3&quot;;
   })())
