@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="(1) Stop The Committee!" startnode="1" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+<tw-storydata name="(1) Stop The Committee!" startnode="14" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 input {
 	display:inline;
 	font-size:1em;
@@ -192,9 +192,9 @@ This location was formerly the Committee of 99’s primary storage facility. The
 
 Let me know if you change your mind, and want to help [[stop the Committee|start]].</tw-passagedata>
 <tw-passagedata pid="6" name="find the box" tags="" position="897,781">
-My contact has alerted me of an case located within the building.  We suspect it may contain information intended for members of the Committee of 99.  If you can find the case and inspect it&#39;s contents, we may be able to learn their next move.
+My contact has alerted me of an leather briefcase located within the building.  We suspect it may contain information intended for members of the Committee of 99.  If you can find the case and inspect it&#39;s contents, we may be able to learn their next move.
 
-We know that the box should have the Committee&#39;s logo on it:
+The briefcase will have the Committee&#39;s logo on it:
 
 &lt;img src=&quot;assets/99logo.png&quot; width=&quot;200&quot; height=&quot;200&quot; alt=&quot;Committee of 99&quot;&gt;
 Start there and let me know what you find out.
@@ -309,7 +309,7 @@ Maybe check if he&#39;s accidentally divulged any information that could be usef
     ]
 ]
 }</tw-passagedata>
-<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="802,2">(goto: &quot;resolution&quot;)
+<tw-passagedata pid="14" name="Debugging only - start from beginning" tags="" position="802,2">(goto: &quot;fc-code-1&quot;)
 &lt;!--(goto: &quot;show-contact-documents&quot;)--&gt;
 &lt;!--(goto: &quot;Blood Intro - 1&quot;)--&gt;
 (save-game: &quot;Z&quot;)</tw-passagedata>
@@ -437,7 +437,7 @@ Okay.  You&#39;re saying the bust is *no closer than* &lt;form onsubmit=&#39;$.e
 ] </tw-passagedata>
 <tw-passagedata pid="25" name="found-fc" tags="" position="704,1102">This is where things get complicated. The Committee of 99 uses a bunch of codes and ciphers to protect their most confidential information. 
 
-Our goal here is to piece together a sentence that has been hidden in the archival material here. We have directions, but we need to break the cipher to properly understand them. This is what I’m looking at in my copy of the Master Plan:
+Our goal is to piece together a sentence that has been hidden in the archival material here. We have directions, but we need to break the cipher to properly understand them. This is what I’m looking at in my copy of the Master Plan:
 
 1. WITHIN 
 2. P-EEE/SEEE-E,Rerkm
@@ -551,6 +551,8 @@ What does that give you?
   (go-to: (function() {
     var box = $box.toLowerCase();
 	if (box.indexOf(&quot;two&quot;) &gt; -1)
+	  return &quot;fc-code-2&quot;;
+	if (box.indexOf(&quot;2&quot;) &gt; -1)
 	  return &quot;fc-code-2&quot;;
 	return &quot;wrong-box-1&quot;;
   })())
