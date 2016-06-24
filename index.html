@@ -96,6 +96,7 @@ tw-story {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">function addMetaViewportTag() {
 	var metaTag=document.createElement('meta');
   metaTag.name = "viewport"
@@ -115,6 +116,7 @@ window.$ = {
     }
 	}
 };
+
 
 
 
@@ -176,6 +178,7 @@ Let me know if you change your mind, and want to help [[stop the Committee|start
 My contact has alerted me of an case located within the building.  We suspect it may contain information intended for members of the Committee of 99.  If you can find the case and inspect it&#39;s contents, we may be able to learn their next move.
 
 We know that the box should have the Committee&#39;s logo on it:
+
 &lt;img src=&quot;assets/99logo.png&quot; width=&quot;200&quot; height=&quot;200&quot; alt=&quot;Committe of 99&quot;&gt;
 Start there and let me know what you find out.
 
@@ -322,7 +325,7 @@ Maybe see if he&#39;s accidentally divulged any information that could be useful
 <tw-passagedata pid="16" name="check-dark-past" tags="" position="1302,1102">{
 &lt;!-- Comments in javascript blocks like this explode things. --&gt;
 &lt;!-- Well, some copy pasting of code going on here.. --&gt;
-&lt;!-- I guess we could kind of merge the cheking passages --&gt;
+&lt;!-- I guess we could kind of merge the checking passages --&gt;
 
 (set: $error to (function() {
     var location = $locationDP.toLowerCase();
@@ -364,7 +367,7 @@ Let me know when you&#39;ve got it [[figured out|resolution-2]].</tw-passagedata
 
 What did you [[find in the box|find the box]]?
 }</tw-passagedata>
-<tw-passagedata pid="19" name=" found-committee-member" tags="" position="999,1702">I wonder what information they have. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing.  We do have some [[intel]] on that particular member of the Committee..
+<tw-passagedata pid="19" name=" found-committee-member" tags="" position="999,1702">I wonder what information they have. See if you can get ahold of their briefcase, remove whatever’s inside, and put the briefcase back without them noticing.  We do have some [[intel]] on that particular member of the Committee...
 </tw-passagedata>
 <tw-passagedata pid="20" name="show-contact-documents" tags="" position="1405,1702">Wonderful, did my contact wearing the anti-committee button provide you with any useful information? Do you know anything more about where the bust is hidden?
 {&lt;!-- 
@@ -405,15 +408,15 @@ The bust is within &lt;form onsubmit=&#39;$.e(&quot;sure&quot;); return false&#3
   (goto: &quot;branches&quot;)
 ]
 }</tw-passagedata>
-<tw-passagedata pid="22" name="Header" tags="header" position="962,149">&lt;img class=&quot;blood-thumb&quot; src=&quot;assets/incognito.jpg&quot; width=&quot;100&quot; height=&quot;100&quot; alt=&quot;j.blood&quot;&gt;
+<tw-passagedata pid="22" name="Header" tags="header" position="962,149">&lt;img class=&quot;blood-thumb&quot; src=&quot;assets/incognito.png&quot; width=&quot;80&quot; height=&quot;100&quot; alt=&quot;j.blood&quot;&gt;
 &lt;p class=&quot;header-text&quot;&gt;&lt;span class=&quot;animate&quot;&gt;[``**INCOMING MESSAGE**``]&lt;/span&gt;&lt;/p&gt;
 </tw-passagedata>
-<tw-passagedata pid="23" name="intel" tags="" position="1204,1806">Well, it looks here like your committee member is a *really* big fan of camp songs—the file says he &quot;is frequently distracted from his duties when included in fun campfire songs, summer camp games, and repeat-after-me songs by friendly groups of people&quot;.  Hmm.  Seems oddly specific.  Sorry, not much else to go on..
+<tw-passagedata pid="23" name="intel" tags="" position="1204,1806">Well, it looks here like your committee member is a *really* big fan of camp songs—the file says he &quot;is frequently distracted from his duties when included in fun campfire songs, summer camp games, and repeat-after-me songs by friendly groups of people&quot;.  Hmm.  Seems oddly specific.  Sorry, not much else to go on...
 
 ...
 
 Once you have the documents, I’ve got a contact at your location who may be able to help you interpret what you find.  You’ll be able to identify my contact by their distinctive hat, and this anti-Committee button:
-&lt;img src=&quot;assets/pin.png&quot; width=&quot;200&quot; height=&quot;200&quot; alt=&quot;Committe of 99&quot;&gt;
+&lt;img src=&quot;assets/pin.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; alt=&quot;Committe of 99&quot;&gt;
 Try [[showing them|show-contact-documents]] the documents.</tw-passagedata>
 <tw-passagedata pid="24" name="resolution-2" tags="" position="1205,405">Nice.  Now that we know where the bust is, we can take it from here.
 
