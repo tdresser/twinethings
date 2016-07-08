@@ -55,7 +55,7 @@ window.$ = {
 
 Won&#39;t you tell me your name?
 
-It&#39;s &lt;form onsubmit=&#39;$.e(&quot;name&quot;); return false&#39;&gt;&lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;name_tag&quot;)}&#39; type=&quot;text&quot; id=&quot;first_name&quot;&gt;&lt;/input&gt; &lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;name&quot;)}&#39; type=&quot;text&quot; id=&quot;last_name&quot;&gt;&lt;/input&gt;&lt;/form&gt;?
+It&#39;s &lt;form&gt;&lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;name&quot;)}&#39; type=&quot;text&quot; id=&quot;first_name&quot;&gt;&lt;/input&gt; &lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;name&quot;)}&#39; type=&quot;text&quot; id=&quot;last_name&quot;&gt;&lt;/input&gt;&lt;/form&gt;?
 
  
 (click: &quot;name&quot;)[
@@ -88,7 +88,7 @@ It&#39;s &lt;form onsubmit=&#39;$.e(&quot;name&quot;); return false&#39;&gt;&lt;
 Feel like a test?
 
 (click: &quot;test&quot;)[
-  (print:&quot;foo&quot;)
+  (print:&quot;We just called into twine logic from JavaScript!&quot;)
 ]
 
 (set: $dummy to $.e(&quot;test&quot;))</tw-passagedata>
