@@ -1,0 +1,126 @@
+<tw-storydata name="Text Entry" startnode="1" creator="Twine" creator-version="2.0.11" ifid="EBE85AD4-A4BB-4D9D-A37A-C2739ABF8252" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+input {
+	display:inline;
+	font-size:1em;
+	font-family: inherit;
+	border-color:black;
+}
+
+form {
+	display: inline;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Using a meta viewport tag makes things better for mobile.
+// See https://developers.google.com/web/fundamentals/design-and-ui/responsive/fundamentals/set-the-viewport?hl=en.
+function addMetaViewportTag() {
+	var metaTag=document.createElement('meta');
+  metaTag.name = "viewport"
+  metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+  document.getElementsByTagName('head')[0].appendChild(metaTag);
+}
+
+addMetaViewportTag();
+
+/* This provides a simple mechanism for calling into twine logic from JavaScript, by simulating a click on something that's had the "click" macro used on it.
+
+For instance:
+
+This is a test.
+
+(click: "test")[
+  (print:foo)
+]
+
+window.$("test");
+
+will then cause "foo" to print.*/
+
+window.$ = {
+  e: function(name) {
+		var as = document.getElementsByTagName('tw-enchantment');
+    for (var i = 0; i < as.length; ++i){
+			if (name == as[i].innerText) {
+				as[i].click();
+			}
+    }
+	}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="whats-your-name" tags="" position="797,150">Greetings traveller.
+
+Won&#39;t you tell me your name?
+
+It&#39;s &lt;form onsubmit=&#39;$.e(&quot;name&quot;); return false&#39;&gt;&lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;name_tag&quot;)}&#39; type=&quot;text&quot; id=&quot;first_name&quot;&gt;&lt;/input&gt; &lt;input onkeydown = &#39;if (event.keyCode === 13) {$.e(&quot;name&quot;)}&#39; type=&quot;text&quot; id=&quot;last_name&quot;&gt;&lt;/input&gt;&lt;/form&gt;?
+
+ 
+(click: &quot;name&quot;)[
+  (set: $first_name to document.getElementById(&quot;first_name&quot;).value)
+  (set: $last_name to document.getElementById(&quot;last_name&quot;).value)
+  (goto: &quot;check-name&quot;)
+]</tw-passagedata>
+<tw-passagedata pid="2" name="check-name" tags="" position="800,333">{
+&lt;!-- Comments in javascript blocks like this can cause problems. --&gt;
+
+(set: $error to (function() {
+    var first_name = $first_name.toLowerCase();
+    var last_name = $last_name.toLowerCase();
+	
+    if (first_name.length === 0 || last_name.length === 0)
+	  return &quot;Sorry, I didn&#39;t quite catch that. [[What&#39;s your name|whats-your-name]]?&quot;;
+	if (first_name === &quot;twine&quot;)
+	  return &quot;That&#39;s a ridiculous name. [[What&#39;s your real name|whats-your-name]]?&quot;;
+	return &quot;&quot;;
+})())
+
+(if: $error&#39;s length &gt; 0)[
+  (print: $error)
+](else:)[
+  (goto: &quot;display-name&quot;)
+]
+}</tw-passagedata>
+<tw-passagedata pid="3" name="display-name" tags="" position="801,498">It&#39;s good to finally meet you, $first_name $last_name.
+
+Feel like a test?
+
+(click: &quot;test&quot;)[
+  (print:&quot;foo&quot;)
+]
+
+(set: $dummy to $.e(&quot;test&quot;))</tw-passagedata>
+</tw-storydata>
